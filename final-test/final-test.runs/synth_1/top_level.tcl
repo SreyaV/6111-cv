@@ -18,6 +18,7 @@ proc create_report { reportName command } {
   }
 }
 set_param chipscope.maxJobs 1
+set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a100tcsg324-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -32,7 +33,11 @@ set_property target_language Verilog [current_project]
 set_property ip_output_repo {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib -sv {
+  {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/blob.sv}
   {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv}
+  {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv}
+  {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv}
+  {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv}
   {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv}
 }
 read_verilog -library xil_defaultlib {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v}}

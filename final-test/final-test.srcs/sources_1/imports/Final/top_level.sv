@@ -21,9 +21,9 @@ module top_level(
    output[3:0] vga_r,
    output[3:0] vga_b,
    output[3:0] vga_g,
-   output [7:0] hue,
-   output [7:0] saturation,
-   output [7:0] value,
+   //output [7:0] hue,
+   //output [7:0] saturation,
+   //output [7:0] value,
    output vga_hs, //delay 22 cycles
    output vga_vs, //delay 22 cycles
    output led16_b, led16_g, led16_r,
@@ -40,7 +40,7 @@ module top_level(
     wire [31:0] data;      //  instantiate 7-segment display; display (8) 4-bit hex
     wire [6:0] segments;
     assign {cg, cf, ce, cd, cc, cb, ca} = segments[6:0];
-    display_8hex display(.clk_in(clk_65mhz),.data_in(data), .seg_out(segments), .strobe_out(an));
+    //display_8hex display(.clk_in(clk_65mhz),.data_in(data), .seg_out(segments), .strobe_out(an));
     //assign seg[6:0] = segments;
     assign  dp = 1'b1;  // turn off the period
 
@@ -88,6 +88,13 @@ module top_level(
     
     logic [16:0] pixel_addr_in;
     logic [16:0] pixel_addr_out;
+    
+    logic [10:0] centroid_x;
+    logic [9:0] centroid_y;
+    logic green;
+    logic frame_done;
+    
+    assign frame_done = (hcount==320 && vcount==240) ? 1 : 0;
     
     assign xclk = (xclk_count >2'b01);
     assign jbclk = xclk;
@@ -153,11 +160,19 @@ module top_level(
             
     end
     
-    rbg2hsv(.clock(clk_65mhz), .reset(reset), .r(vga_r), .g(vga_g), .b(vga_b), .h(hue), .s(saturation), .v(value));
+    rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r(vga_r<<4), .g(vga_g<<4), .b(vga_b<<4), .green(green));
+    
+    logic [0:16] count;
+    
+    centroid centroid1 (.clock(clk_65mhz), .reset(reset), .x(hcount), .y(vcount), .green(green), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count));
     
     assign pixel_addr_out = sw[2]?((hcount>>1)+(vcount>>1)*32'd320):hcount+vcount*32'd320;
-    assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
+    //assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
     
+    //assign frame_buff_out = 
+    
+    assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
+    display_8hex display(.clk_in(clk_65mhz),.data_in(count), .seg_out(segments), .strobe_out(an));
     
     //hcount vcount and frame_buff_out bc theyre all synchronized here
     //put throug rgb to hsv module
@@ -187,7 +202,7 @@ module top_level(
                 .up_in(up),.down_in(down),.pspeed_in(sw[15:12]),
                 .hcount_in(hcount),.vcount_in(vcount),
                 .hsync_in(hsync),.vsync_in(vsync),.blank_in(blank),
-                .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank),.pixel_out(pixel));
+                .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank),.pixel_out(pixel), .centroid_x(centroid_x), .centroid_y(centroid_y));
 
     wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767 |
                    hcount == 512 | vcount == 384);
@@ -211,8 +226,11 @@ module top_level(
          hs <= phsync;
          vs <= pvsync;
          b <= pblank;
-         rgb <= pixel;
-         //rgb <= cam; //toggle for pong or camera display
+         if (pixel > 0) begin
+            rgb <= pixel;
+         end else begin
+            rgb <= cam; //toggle for pong or camera display
+         end
       end
     end
 
@@ -250,6 +268,8 @@ module pong_game (
    input hsync_in,         // XVGA horizontal sync signal (active low)
    input vsync_in,         // XVGA vertical sync signal (active low)
    input blank_in,         // XVGA blanking (1 means output black pixel)
+   input [10:0] centroid_x,
+   input [9:0] centroid_y,
         
    output phsync_out,       // pong game's horizontal sync
    output pvsync_out,       // pong game's vertical sync
@@ -257,7 +277,7 @@ module pong_game (
    output [11:0] pixel_out  // pong game's pixel  // r=23:16, g=15:8, b=7:0 
    );
 
-   wire [2:0] checkerboard;
+   //wire [2:0] checkerboard;
         
    // REPLACE ME! The code below just generates a color checkerboard
    // using 64 pixel by 64 pixel squares.
@@ -265,13 +285,15 @@ module pong_game (
    assign phsync_out = hsync_in;
    assign pvsync_out = vsync_in;
    assign pblank_out = blank_in;
-   assign checkerboard = hcount_in[8:6] + vcount_in[8:6];
+   //assign checkerboard = hcount_in[8:6] + vcount_in[8:6];
 
    // here we use three bits from hcount and vcount to generate the
    // checkerboard
 
-   assign pixel_out = {{4{checkerboard[2]}}, {4{checkerboard[1]}}, {4{checkerboard[0]}}} ;
-     
+   //assign pixel_out = {{4{checkerboard[2]}}, {4{checkerboard[1]}}, {4{checkerboard[0]}}} ;
+         blob #(.WIDTH(30),.HEIGHT(20),.COLOR(12'h0F0))   // green
+        square(.x_in(centroid_x),.y_in(centroid_y),.hcount_in(hcount_in),.vcount_in(vcount_in),
+             .pixel_out(pixel_out));
 endmodule
 
 module synchronize #(parameter NSYNC = 3)  // number of sync flops.  must be >= 2

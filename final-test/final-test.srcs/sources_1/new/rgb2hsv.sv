@@ -19,16 +19,16 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module rgb2hsv(clock, reset, r, g, b, h, s, v);
+module rgb2hsv(clock, reset, r, g, b, green);
 		input wire clock;
 		input wire reset;
 		input wire [7:0] r;
 		input wire [7:0] g;
 		input wire [7:0] b;
-		//output logic green;
-		output reg [7:0] h;
-		output reg [7:0] s;
-		output reg [7:0] v;
+		output logic green;
+		reg [7:0] h;
+		reg [7:0] s;
+		reg [7:0] v;
 		reg [7:0] my_r_delay1, my_g_delay1, my_b_delay1;
 		reg [7:0] my_r_delay2, my_g_delay2, my_b_delay2;
 		reg [7:0] my_r, my_g, my_b;
@@ -47,6 +47,9 @@ module rgb2hsv(clock, reset, r, g, b, h, s, v);
 		reg [18:0] h_negative;
 		reg [15:0] h_add [18:0];
 		reg [4:0] i;
+		logic s_ready;
+		logic h_ready;
+		
 		// Clocks 4-18: perform all the divisions
 		//the s_divider (16/16) has delay 18
 		//the hue_div (16/16) has delay 18
@@ -59,16 +62,20 @@ module rgb2hsv(clock, reset, r, g, b, h, s, v);
 	        // note: the "fractional" output was originally named "remainder" in this
 		// file -- it seems coregen will name this output "fractional" even if
 		// you didn't select the remainder type as fractional.
-		.fractional(s_remainder),
-		.rfd(s_rfd)
+		.remainder(s_remainder),
+		.ready(s_ready),
+		.start(1),
+		.sign(0)
 		);
 		divider hue_div2(
 		.clk(clock),
 		.dividend(h_top),
 		.divisor(h_bottom),
 		.quotient(h_quotient),
-		.fractional(h_remainder),
-		.rfd(h_rfd)
+		.remainder(h_remainder),
+		.ready(h_ready),
+		.start(1),
+		.sign(0)
 		);
 		always @ (posedge clock) begin
 		
@@ -144,10 +151,10 @@ module rgb2hsv(clock, reset, r, g, b, h, s, v);
 			s <= s_quotient;
 			v <= v_delay[19];
 			
-			/*if (h< 200 && h>100 && v<90 && v>10) begin
+			if (h< 90 && h>30 && v<255 && v>80) begin
 			    green <= 1;
 			end else begin
 			    green <= 0;
-			end*/
+			end
 		end
 endmodule

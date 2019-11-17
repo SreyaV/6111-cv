@@ -19,7 +19,7 @@ and don't have time to figure out why. You know the deal.
 const byte ADDR = 0x21; //name of the camera on I2C
 
 uint8_t settings[][2] = {
-    {0x12, 0x80}, //reset
+  {0x12, 0x80}, //reset
   {0xFF, 0xF0}, //delay
   {0x12, 0x14}, // COM7,     set RGB color output (QVGA and test pattern 0x6...for RGB video 0x4)
   {0x11, 0x80}, // CLKRC     internal PLL matches input clock
@@ -78,9 +78,9 @@ uint8_t settings[][2] = {
   {0x89, 0xe8},
   //WB Stuff (new stuff!!!!)
   {0x00, 0x00}, //set gain reg to 0 for AGC
-  {0x01, 0x00}, //blue gain (default 80)
-  {0x02, 0xFF}, //reg gain (default 80)
-  {0x6a, 0xA5}, //green gain (default not sure!)
+  {0x01, 0x8F}, //blue gain (default 80)
+  {0x02, 0x6F}, //reg gain (default 80)
+  {0x6a, 0x5F}, //green gain (default not sure!)
   {0x13, 0x00}, //disable all automatic features!! (including automatic white balance)
 };//AGC and AEC
 //    {0x13, 0xe0}, //COM8, disable AGC / AEC

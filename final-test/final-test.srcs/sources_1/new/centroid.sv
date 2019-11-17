@@ -23,18 +23,19 @@
 //frame done
 //update centroid_x, centroid_y when done
 //send in x, y, isgreen
-module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done);
+module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, count);
     input logic clock;
     input logic reset;
     input logic [10:0] x;
     input logic [9:0] y;
     input logic green;
     input logic frame_done;
+    
     output logic [10:0] centroid_x;
     output logic [9:0] centroid_y;
     logic [26:0] x_acc;
     logic [25:0] y_acc;
-    logic [0:16] count;
+    output logic [0:16] count;
     logic last_frame_done;
     
     always_ff @(posedge clock) begin
@@ -55,6 +56,9 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done);
             end else if (count >6000) begin
                 centroid_x <= x_acc>>13;
                 centroid_y <= y_acc>>13;
+            end else if (count < 100) begin
+                centroid_x <= x_acc>>6;
+                centroid_y <= y_acc>>6;
             end else begin
                 centroid_x <= x_acc>>12;
                 centroid_y <= y_acc>>12;

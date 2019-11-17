@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Sun Nov 17 13:23:39 2019
+| Date         : Sun Nov 17 18:42:38 2019
 | Host         : DESKTOP-7EQCPG5 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_level_control_sets_placed.rpt
 | Design       : top_level
@@ -23,11 +23,11 @@ Table of Contents
 +----------------------------------------------------------+-------+
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
-| Total control sets                                       |     3 |
-|    Minimum number of control sets                        |     3 |
+| Total control sets                                       |    16 |
+|    Minimum number of control sets                        |    16 |
 |    Addition due to synthesis replication                 |     0 |
 |    Addition due to physical synthesis replication        |     0 |
-| Unused register locations in slices containing registers |    17 |
+| Unused register locations in slices containing registers |    66 |
 +----------------------------------------------------------+-------+
 * Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
 ** Run report_qor_suggestions for automated merging and remapping suggestions
@@ -39,15 +39,15 @@ Table of Contents
 +--------------------+-------+
 |       Fanout       | Count |
 +--------------------+-------+
-| Total control sets |     3 |
-| >= 0 to < 4        |     0 |
-| >= 4 to < 6        |     0 |
+| Total control sets |    16 |
+| >= 0 to < 4        |     2 |
+| >= 4 to < 6        |     4 |
 | >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     0 |
+| >= 8 to < 10       |     2 |
 | >= 10 to < 12      |     2 |
-| >= 12 to < 14      |     0 |
+| >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     0 |
-| >= 16              |     1 |
+| >= 16              |     5 |
 +--------------------+-------+
 * Control sets can be remapped at either synth_design or opt_design
 
@@ -58,24 +58,37 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |              42 |           20 |
+| No           | No                    | No                     |             153 |           64 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              11 |            4 |
-| Yes          | No                    | No                     |               0 |            0 |
+| No           | Yes                   | No                     |              36 |           14 |
+| Yes          | No                    | No                     |              17 |            5 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |              10 |            5 |
+| Yes          | Yes                   | No                     |             136 |           48 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+---------------+------------------+------------------+----------------+
-|     Clock Signal     | Enable Signal | Set/Reset Signal | Slice Load Count | Bel Load Count |
-+----------------------+---------------+------------------+------------------+----------------+
-|  clkdivider/clk_out1 | xvga1/hreset  | xvga1/SR[0]      |                5 |             10 |
-|  clkdivider/clk_out1 |               | xvga1/hreset     |                4 |             11 |
-|  clkdivider/clk_out1 |               |                  |               20 |             42 |
-+----------------------+---------------+------------------+------------------+----------------+
++----------------------+--------------------------------------+---------------------------+------------------+----------------+
+|     Clock Signal     |             Enable Signal            |      Set/Reset Signal     | Slice Load Count | Bel Load Count |
++----------------------+--------------------------------------+---------------------------+------------------+----------------+
+|  clkdivider/clk_out1 |                                      | display/p_0_in[0]         |                1 |              1 |
+|  clkdivider/clk_out1 | db1/new_input_i_1_n_0                |                           |                1 |              1 |
+|  pclk_in_BUFG        |                                      |                           |                1 |              4 |
+|  clkdivider/clk_out1 |                                      | xvga1/hcount_out_reg[7]_1 |                1 |              4 |
+|  clkdivider/clk_out1 |                                      | xvga1/hcount_out_reg[6]_0 |                2 |              4 |
+|  clkdivider/clk_out1 |                                      | xvga1/hcount_out_reg[8]_0 |                3 |              4 |
+|  pclk_in_BUFG        | my_camera/pixel_data_out[15]_i_1_n_0 |                           |                2 |              8 |
+|  pclk_in_BUFG        | my_camera/__0/i__n_0                 |                           |                2 |              8 |
+|  clkdivider/clk_out1 | xvga1/hreset                         | xvga1/vcount_out0         |                5 |             10 |
+|  clkdivider/clk_out1 |                                      | xvga1/hreset              |                4 |             11 |
+|  clkdivider/clk_out1 |                                      | b_reg_n_0                 |                3 |             12 |
+|  pclk_in_BUFG        | my_camera/valid_pixel                | my_camera/frame_done_out  |                5 |             17 |
+|  clkdivider/clk_out1 | db1/count                            | db1/new_input_i_1_n_0     |                5 |             20 |
+|  clkdivider/clk_out1 | xvga1/E[0]                           | db1/reset                 |               14 |             21 |
+|  clkdivider/clk_out1 | rgb2hsv1/x_acc                       | db1/clean_out_reg_0       |               19 |             68 |
+|  clkdivider/clk_out1 |                                      |                           |               63 |            155 |
++----------------------+--------------------------------------+---------------------------+------------------+----------------+
 
 
