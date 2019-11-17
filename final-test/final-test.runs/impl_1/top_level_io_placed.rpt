@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
----------------------------------------------------------------------------------------------------
-| Tool Version              : Vivado v.2019.1.2 (lin64) Build 2615518 Fri Aug  9 15:53:29 MDT 2019
-| Date                      : Thu Nov  7 22:25:27 2019
-| Host                      : eecs-digital-21 running 64-bit Ubuntu 14.04.6 LTS
+-------------------------------------------------------------------------------------------------
+| Tool Version              : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date                      : Sun Nov 17 13:23:39 2019
+| Host                      : DESKTOP-7EQCPG5 running 64-bit major release  (build 9200)
 | Command                   : report_io -file top_level_io_placed.rpt
 | Design                    : top_level
 | Device                    : xc7a100t
@@ -10,7 +10,7 @@ Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 | Package                   : csg324
 | Package Version           : FINAL 2012-07-17
 | Package Pin Delay Version : VERS. 2.0 2012-07-17
----------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------
 
 IO Information
 

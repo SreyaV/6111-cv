@@ -6,10 +6,14 @@
 # Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 # 
 
+echo "This script was generated under a different operating system."
+echo "Please update the PATH and LD_LIBRARY_PATH variables below, before executing this script"
+exit
+
 if [ -z "$PATH" ]; then
-  PATH=/var/local/xilinx-local/SDK/2019.1/bin:/var/local/xilinx-local/Vivado/2019.1/ids_lite/ISE/bin/lin64:/var/local/xilinx-local/Vivado/2019.1/bin
+  PATH=C:/Xilinx/SDK/2019.1/bin;C:/Xilinx/Vivado/2019.1/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2019.1/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2019.1/bin
 else
-  PATH=/var/local/xilinx-local/SDK/2019.1/bin:/var/local/xilinx-local/Vivado/2019.1/ids_lite/ISE/bin/lin64:/var/local/xilinx-local/Vivado/2019.1/bin:$PATH
+  PATH=C:/Xilinx/SDK/2019.1/bin;C:/Xilinx/Vivado/2019.1/ids_lite/ISE/bin/nt64;C:/Xilinx/Vivado/2019.1/ids_lite/ISE/lib/nt64:C:/Xilinx/Vivado/2019.1/bin:$PATH
 fi
 export PATH
 
@@ -20,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='/afs/athena.mit.edu/user/s/v/svangara/Documents/final-test/final-test.runs/synth_1'
+HD_PWD='C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

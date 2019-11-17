@@ -25,6 +25,7 @@ module rgb2hsv(clock, reset, r, g, b, h, s, v);
 		input wire [7:0] r;
 		input wire [7:0] g;
 		input wire [7:0] b;
+		//output logic green;
 		output reg [7:0] h;
 		output reg [7:0] s;
 		output reg [7:0] v;
@@ -142,5 +143,11 @@ module rgb2hsv(clock, reset, r, g, b, h, s, v);
 			//pass out s and v straight
 			s <= s_quotient;
 			v <= v_delay[19];
+			
+			/*if (h< 200 && h>100 && v<90 && v>10) begin
+			    green <= 1;
+			end else begin
+			    green <= 0;
+			end*/
 		end
 endmodule

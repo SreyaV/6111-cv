@@ -21,8 +21,11 @@ module top_level(
    output[3:0] vga_r,
    output[3:0] vga_b,
    output[3:0] vga_g,
-   output vga_hs,
-   output vga_vs,
+   output [7:0] hue,
+   output [7:0] saturation,
+   output [7:0] value,
+   output vga_hs, //delay 22 cycles
+   output vga_vs, //delay 22 cycles
    output led16_b, led16_g, led16_r,
    output led17_b, led17_g, led17_r,
    output[15:0] led,
@@ -149,8 +152,16 @@ module top_level(
         end
             
     end
+    
+    rbg2hsv(.clock(clk_65mhz), .reset(reset), .r(vga_r), .g(vga_g), .b(vga_b), .h(hue), .s(saturation), .v(value));
+    
     assign pixel_addr_out = sw[2]?((hcount>>1)+(vcount>>1)*32'd320):hcount+vcount*32'd320;
     assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
+    
+    
+    //hcount vcount and frame_buff_out bc theyre all synchronized here
+    //put throug rgb to hsv module
+    //use a shift register to delay 22 counts
     
 //    ila_0 joes_ila(.clk(clk_65mhz),    .probe0(pixel_in), 
 //                                        .probe1(pclk_in), 
@@ -200,8 +211,8 @@ module top_level(
          hs <= phsync;
          vs <= pvsync;
          b <= pblank;
-         //rgb <= pixel;
-         rgb <= cam;
+         rgb <= pixel;
+         //rgb <= cam; //toggle for pong or camera display
       end
     end
 
@@ -214,6 +225,11 @@ module top_level(
 
     assign vga_hs = ~hs;
     assign vga_vs = ~vs;
+    
+    //assign hsync_out = hsync_shift_reg[sync_dly-1]
+    //for hs, vs, and b (blank_out)
+    //dwofk virtual passport
+    //assign v_sync = vsync_out;
 
 endmodule
 

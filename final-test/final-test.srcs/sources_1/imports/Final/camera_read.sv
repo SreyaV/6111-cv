@@ -32,8 +32,14 @@ module camera_read(
 	   pixel_valid_out <= (href_in && pixel_half) ? 1 : 0; 
 	   if (href_in) begin
 	       pixel_half <= ~ pixel_half;
-	       if (pixel_half) pixel_data_out[7:0] <= p_data_in;
-	       else pixel_data_out[15:8] <= p_data_in;
+	       //if (pixel_half) pixel_data_out[7:0] <= p_data_in;
+	       //else pixel_data_out[15:8] <= p_data_in;
+	       if (pixel_half) begin
+	           pixel_data_out[7:0] <= p_data_in;
+	       end
+	       else begin
+	           pixel_data_out[15:8] <= p_data_in;
+	       end
 	   end
 	end
 	endcase
