@@ -172,6 +172,7 @@ module top_level(
     //assign frame_buff_out = 
     
     assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
+    
     display_8hex display(.clk_in(clk_65mhz),.data_in(count), .seg_out(segments), .strobe_out(an));
     
     //hcount vcount and frame_buff_out bc theyre all synchronized here
