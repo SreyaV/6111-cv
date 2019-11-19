@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sun Nov 17 18:22:25 2019
-# Process ID: 15836
+# Start of session at: Tue Nov 19 00:02:40 2019
+# Process ID: 4796
 # Current directory: C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1
 # Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
 # Log file: C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/top_level.vds
@@ -16,9 +16,9 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 10516 
+INFO: Helper process launched with PID 13196 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 727.363 ; gain = 177.965
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 727.434 ; gain = 178.836
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_level' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_lab3' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v:67]
@@ -82,7 +82,7 @@ INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (2#1) [C:/Xilinx/Viva
 INFO: [Synth 8-6157] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
 INFO: [Synth 8-6155] done synthesizing module 'BUFG' (3#1) [C:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
 INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_lab3' (4#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v:67]
-INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:448]
+INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:470]
 	Parameter DISPLAY_WIDTH bound to: 1024 - type: integer 
 	Parameter DISPLAY_HEIGHT bound to: 768 - type: integer 
 	Parameter H_FP bound to: 24 - type: integer 
@@ -91,37 +91,42 @@ INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Sreya Vangara/Document
 	Parameter V_FP bound to: 3 - type: integer 
 	Parameter V_SYNC_PULSE bound to: 6 - type: integer 
 	Parameter V_BP bound to: 29 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'xvga' (5#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:448]
-INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:317]
-INFO: [Synth 8-6155] done synthesizing module 'debounce' (6#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:317]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-15836-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (7#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-15836-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
-WARNING: [Synth 8-689] width (12) of port connection 'doutb' does not match port width (16) of module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:115]
+INFO: [Synth 8-6155] done synthesizing module 'xvga' (5#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:470]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:339]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (6#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:339]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-4796-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (7#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-4796-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
+WARNING: [Synth 8-689] width (12) of port connection 'doutb' does not match port width (16) of module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:123]
 INFO: [Synth 8-6157] synthesizing module 'rgb2hsv' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
 INFO: [Synth 8-6157] synthesizing module 'divider' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv:12]
 	Parameter WIDTH bound to: 16 - type: integer 
 WARNING: [Synth 8-6014] Unused sequential element diff_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv:53]
 INFO: [Synth 8-6155] done synthesizing module 'divider' (8#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv:12]
-WARNING: [Synth 8-6014] Unused sequential element s_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:151]
+WARNING: [Synth 8-6014] Unused sequential element s_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:158]
 INFO: [Synth 8-6155] done synthesizing module 'rgb2hsv' (9#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
+WARNING: [Synth 8-689] width (32) of port connection 'r' does not match port width (8) of module 'rgb2hsv' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:180]
+WARNING: [Synth 8-689] width (32) of port connection 'g' does not match port width (8) of module 'rgb2hsv' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:180]
+WARNING: [Synth 8-689] width (32) of port connection 'b' does not match port width (8) of module 'rgb2hsv' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:180]
 INFO: [Synth 8-6157] synthesizing module 'centroid' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
 INFO: [Synth 8-6155] done synthesizing module 'centroid' (10#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
-INFO: [Synth 8-6157] synthesizing module 'display_8hex' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:350]
+INFO: [Synth 8-6157] synthesizing module 'display_8hex' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:372]
 	Parameter bits bound to: 13 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'display_8hex' (11#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:350]
+INFO: [Synth 8-6155] done synthesizing module 'display_8hex' (11#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:372]
 INFO: [Synth 8-6157] synthesizing module 'camera_read' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
 	Parameter WAIT_FRAME_START bound to: 0 - type: integer 
 	Parameter ROW_CAPTURE bound to: 1 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:21]
 INFO: [Synth 8-6155] done synthesizing module 'camera_read' (12#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'pong_game' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:260]
+INFO: [Synth 8-6157] synthesizing module 'pong_game' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:282]
 INFO: [Synth 8-6157] synthesizing module 'blob' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/blob.sv:22]
-	Parameter WIDTH bound to: 30 - type: integer 
-	Parameter HEIGHT bound to: 20 - type: integer 
+	Parameter WIDTH bound to: 10 - type: integer 
+	Parameter HEIGHT bound to: 6 - type: integer 
 	Parameter COLOR bound to: 12'b000011110000 
 INFO: [Synth 8-6155] done synthesizing module 'blob' (13#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/blob.sv:22]
-INFO: [Synth 8-6155] done synthesizing module 'pong_game' (14#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:260]
-WARNING: [Synth 8-3936] Found unconnected internal register 'old_output_pixels_reg' and it is trimmed from '16' to '13' bits. [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:103]
+INFO: [Synth 8-6155] done synthesizing module 'pong_game' (14#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:282]
+WARNING: [Synth 8-6014] Unused sequential element old_output_pixels_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:111]
+WARNING: [Synth 8-3848] Net hsync_shift_reg in module/entity top_level does not have driver. [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:261]
+WARNING: [Synth 8-3848] Net vsync_shift_reg in module/entity top_level does not have driver. [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:262]
 INFO: [Synth 8-6155] done synthesizing module 'top_level' (15#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
 WARNING: [Synth 8-3917] design top_level has port dp driven by constant 1
 WARNING: [Synth 8-3331] design pong_game has unconnected port vclock_in
@@ -137,7 +142,7 @@ WARNING: [Synth 8-3331] design top_level has unconnected port jd[2]
 WARNING: [Synth 8-3331] design top_level has unconnected port jd[1]
 WARNING: [Synth 8-3331] design top_level has unconnected port jd[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 794.340 ; gain = 244.941
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 794.559 ; gain = 245.961
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -150,10 +155,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 794.340 ; gain = 244.941
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 794.559 ; gain = 245.961
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 794.340 ; gain = 244.941
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 794.559 ; gain = 245.961
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -170,43 +175,41 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_pr
 INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 926.945 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 924.789 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.022 . Memory (MB): peak = 926.945 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 924.789 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'jojos_bram' at clock pin 'clkb' is different from the actual clock period '15.385', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 926.945 ; gain = 377.547
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 924.789 ; gain = 376.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 926.945 ; gain = 377.547
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 924.789 ; gain = 376.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for jojos_bram. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:16 . Memory (MB): peak = 926.945 ; gain = 377.547
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 924.789 ; gain = 376.191
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:122]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:122]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:117]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:117]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:116]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:116]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:112]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:112]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:72]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:72]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:143]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:129]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:124]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:124]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:123]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:123]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:119]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:119]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:79]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:79]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
 INFO: [Synth 8-802] inferred FSM for state register 'FSM_state_reg' in module 'camera_read'
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:169]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:169]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -215,7 +218,7 @@ INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared.
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'FSM_state_reg' using encoding 'sequential' in module 'camera_read'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 926.945 ; gain = 377.547
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 924.789 ; gain = 376.191
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -232,8 +235,8 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit       Adders := 5     
 	   3 Input     13 Bit       Adders := 1     
 	   3 Input     12 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 1     
-	   2 Input     10 Bit       Adders := 1     
+	   2 Input     11 Bit       Adders := 2     
+	   2 Input     10 Bit       Adders := 2     
 	   3 Input      8 Bit       Adders := 3     
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      2 Bit       Adders := 1     
@@ -241,30 +244,26 @@ Detailed RTL Component Info :
 	               32 Bit    Registers := 4     
 	               19 Bit    Registers := 1     
 	               16 Bit    Registers := 8     
-	               13 Bit    Registers := 2     
-	               12 Bit    Registers := 1     
+	               12 Bit    Registers := 2     
 	               11 Bit    Registers := 2     
 	               10 Bit    Registers := 2     
 	                8 Bit    Registers := 57    
 	                7 Bit    Registers := 1     
 	                6 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 29    
+	                1 Bit    Registers := 28    
 +---Multipliers : 
 	                16x16  Multipliers := 1     
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 4     
 	   2 Input     16 Bit        Muxes := 13    
 	   3 Input     16 Bit        Muxes := 1     
-	   2 Input     12 Bit        Muxes := 5     
-	   3 Input     12 Bit        Muxes := 2     
-	   2 Input     11 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 12    
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 14    
 	   3 Input      8 Bit        Muxes := 1     
 	   8 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
 	   2 Input      1 Bit        Muxes := 32    
-	   3 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -277,18 +276,14 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
-	               13 Bit    Registers := 2     
-	               12 Bit    Registers := 1     
+	               12 Bit    Registers := 2     
 	                8 Bit    Registers := 2     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 9     
 +---Muxes : 
-	   2 Input     12 Bit        Muxes := 5     
-	   3 Input     12 Bit        Muxes := 2     
-	   2 Input     11 Bit        Muxes := 1     
-	   2 Input     10 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 1     
-	   3 Input      1 Bit        Muxes := 3     
+	   2 Input     12 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 3     
 Module xvga 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -330,7 +325,6 @@ Detailed RTL Component Info :
 	               19 Bit    Registers := 1     
 	               16 Bit    Registers := 3     
 	                8 Bit    Registers := 54    
-	                1 Bit    Registers := 1     
 +---Multipliers : 
 	                16x16  Multipliers := 1     
 +---Muxes : 
@@ -340,6 +334,9 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 6     
 Module centroid 
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
 +---Registers : 
 	               11 Bit    Registers := 1     
 	               10 Bit    Registers := 1     
@@ -383,13 +380,13 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:104]
+INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:111]
 DSP Report: Generating DSP h_top_reg, operation Mode is: (A*(B:0xff))'.
 DSP Report: register h_top_reg is absorbed into DSP h_top_reg.
 DSP Report: operator h_top0 is absorbed into DSP h_top_reg.
-DSP Report: Generating DSP P0, operation Mode is: C+A*(B:0x140).
-DSP Report: operator P0 is absorbed into DSP P0.
-DSP Report: operator p_0_out is absorbed into DSP P0.
+DSP Report: Generating DSP pixel_addr_out, operation Mode is: C+A*(B:0x140).
+DSP Report: operator pixel_addr_out is absorbed into DSP pixel_addr_out.
+DSP Report: operator pixel_addr_out0 is absorbed into DSP pixel_addr_out.
 WARNING: [Synth 8-3917] design top_level has port dp driven by constant 1
 WARNING: [Synth 8-3331] design pong_game has unconnected port vclock_in
 WARNING: [Synth 8-3331] design pong_game has unconnected port reset_in
@@ -403,90 +400,90 @@ WARNING: [Synth 8-3331] design rgb2hsv has unconnected port reset
 WARNING: [Synth 8-3331] design top_level has unconnected port jd[2]
 WARNING: [Synth 8-3331] design top_level has unconnected port jd[1]
 WARNING: [Synth 8-3331] design top_level has unconnected port jd[0]
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][0]' (FDE) to 'rgb2hsv1/h_add_reg[0][2]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][1]' (FDE) to 'rgb2hsv1/h_add_reg[0][3]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][2]' (FDE) to 'rgb2hsv1/h_add_reg[0][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][2]' (FDE) to 'rgb2hsv1/h_add_reg[0][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][3]' (FDE) to 'rgb2hsv1/h_add_reg[0][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][4]' (FDE) to 'rgb2hsv1/h_add_reg[0][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][4]' (FDE) to 'rgb2hsv1/h_add_reg[0][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][5]' (FDE) to 'rgb2hsv1/h_add_reg[0][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[0][6]' (FDE) to 'rgb2hsv1/h_add_reg[0][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[1][0]' (FD) to 'rgb2hsv1/h_add_reg[1][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[1][1]' (FD) to 'rgb2hsv1/h_add_reg[1][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[1][2]' (FD) to 'rgb2hsv1/h_add_reg[1][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[1][2]' (FD) to 'rgb2hsv1/h_add_reg[1][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[1][3]' (FD) to 'rgb2hsv1/h_add_reg[1][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[1][4]' (FD) to 'rgb2hsv1/h_add_reg[1][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[1][5]' (FD) to 'rgb2hsv1/h_add_reg[1][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[1][6]' (FD) to 'rgb2hsv1/h_add_reg[1][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[2][0]' (FD) to 'rgb2hsv1/h_add_reg[2][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[2][1]' (FD) to 'rgb2hsv1/h_add_reg[2][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[2][2]' (FD) to 'rgb2hsv1/h_add_reg[2][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[2][2]' (FD) to 'rgb2hsv1/h_add_reg[2][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[2][3]' (FD) to 'rgb2hsv1/h_add_reg[2][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[2][4]' (FD) to 'rgb2hsv1/h_add_reg[2][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[2][5]' (FD) to 'rgb2hsv1/h_add_reg[2][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[2][6]' (FD) to 'rgb2hsv1/h_add_reg[2][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[3][0]' (FD) to 'rgb2hsv1/h_add_reg[3][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[3][1]' (FD) to 'rgb2hsv1/h_add_reg[3][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[3][2]' (FD) to 'rgb2hsv1/h_add_reg[3][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[3][2]' (FD) to 'rgb2hsv1/h_add_reg[3][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[3][3]' (FD) to 'rgb2hsv1/h_add_reg[3][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[3][4]' (FD) to 'rgb2hsv1/h_add_reg[3][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[3][5]' (FD) to 'rgb2hsv1/h_add_reg[3][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[3][6]' (FD) to 'rgb2hsv1/h_add_reg[3][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[4][0]' (FD) to 'rgb2hsv1/h_add_reg[4][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[4][1]' (FD) to 'rgb2hsv1/h_add_reg[4][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[4][2]' (FD) to 'rgb2hsv1/h_add_reg[4][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[4][2]' (FD) to 'rgb2hsv1/h_add_reg[4][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[4][3]' (FD) to 'rgb2hsv1/h_add_reg[4][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[4][4]' (FD) to 'rgb2hsv1/h_add_reg[4][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[4][5]' (FD) to 'rgb2hsv1/h_add_reg[4][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[4][6]' (FD) to 'rgb2hsv1/h_add_reg[4][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[5][0]' (FD) to 'rgb2hsv1/h_add_reg[5][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[5][1]' (FD) to 'rgb2hsv1/h_add_reg[5][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[5][2]' (FD) to 'rgb2hsv1/h_add_reg[5][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[5][2]' (FD) to 'rgb2hsv1/h_add_reg[5][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[5][3]' (FD) to 'rgb2hsv1/h_add_reg[5][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[5][4]' (FD) to 'rgb2hsv1/h_add_reg[5][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[5][5]' (FD) to 'rgb2hsv1/h_add_reg[5][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[5][6]' (FD) to 'rgb2hsv1/h_add_reg[5][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[6][0]' (FD) to 'rgb2hsv1/h_add_reg[6][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[6][1]' (FD) to 'rgb2hsv1/h_add_reg[6][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[6][2]' (FD) to 'rgb2hsv1/h_add_reg[6][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[6][2]' (FD) to 'rgb2hsv1/h_add_reg[6][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[6][3]' (FD) to 'rgb2hsv1/h_add_reg[6][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[6][4]' (FD) to 'rgb2hsv1/h_add_reg[6][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[6][5]' (FD) to 'rgb2hsv1/h_add_reg[6][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[6][6]' (FD) to 'rgb2hsv1/h_add_reg[6][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[7][0]' (FD) to 'rgb2hsv1/h_add_reg[7][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[7][1]' (FD) to 'rgb2hsv1/h_add_reg[7][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[7][2]' (FD) to 'rgb2hsv1/h_add_reg[7][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[7][2]' (FD) to 'rgb2hsv1/h_add_reg[7][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[7][3]' (FD) to 'rgb2hsv1/h_add_reg[7][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[7][4]' (FD) to 'rgb2hsv1/h_add_reg[7][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[7][5]' (FD) to 'rgb2hsv1/h_add_reg[7][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[7][6]' (FD) to 'rgb2hsv1/h_add_reg[7][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[8][0]' (FD) to 'rgb2hsv1/h_add_reg[8][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[8][1]' (FD) to 'rgb2hsv1/h_add_reg[8][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[8][2]' (FD) to 'rgb2hsv1/h_add_reg[8][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[8][2]' (FD) to 'rgb2hsv1/h_add_reg[8][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[8][3]' (FD) to 'rgb2hsv1/h_add_reg[8][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[8][4]' (FD) to 'rgb2hsv1/h_add_reg[8][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[8][5]' (FD) to 'rgb2hsv1/h_add_reg[8][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[8][6]' (FD) to 'rgb2hsv1/h_add_reg[8][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[9][0]' (FD) to 'rgb2hsv1/h_add_reg[9][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[9][1]' (FD) to 'rgb2hsv1/h_add_reg[9][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[9][2]' (FD) to 'rgb2hsv1/h_add_reg[9][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[9][2]' (FD) to 'rgb2hsv1/h_add_reg[9][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[9][3]' (FD) to 'rgb2hsv1/h_add_reg[9][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[9][4]' (FD) to 'rgb2hsv1/h_add_reg[9][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[9][5]' (FD) to 'rgb2hsv1/h_add_reg[9][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[9][6]' (FD) to 'rgb2hsv1/h_add_reg[9][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[10][0]' (FD) to 'rgb2hsv1/h_add_reg[10][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[10][1]' (FD) to 'rgb2hsv1/h_add_reg[10][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[10][2]' (FD) to 'rgb2hsv1/h_add_reg[10][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[10][2]' (FD) to 'rgb2hsv1/h_add_reg[10][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[10][3]' (FD) to 'rgb2hsv1/h_add_reg[10][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[10][4]' (FD) to 'rgb2hsv1/h_add_reg[10][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[10][5]' (FD) to 'rgb2hsv1/h_add_reg[10][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[10][6]' (FD) to 'rgb2hsv1/h_add_reg[10][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[11][0]' (FD) to 'rgb2hsv1/h_add_reg[11][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[11][1]' (FD) to 'rgb2hsv1/h_add_reg[11][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[11][2]' (FD) to 'rgb2hsv1/h_add_reg[11][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[11][2]' (FD) to 'rgb2hsv1/h_add_reg[11][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[11][3]' (FD) to 'rgb2hsv1/h_add_reg[11][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[11][4]' (FD) to 'rgb2hsv1/h_add_reg[11][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[11][5]' (FD) to 'rgb2hsv1/h_add_reg[11][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[11][6]' (FD) to 'rgb2hsv1/h_add_reg[11][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[12][0]' (FD) to 'rgb2hsv1/h_add_reg[12][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[12][1]' (FD) to 'rgb2hsv1/h_add_reg[12][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[12][2]' (FD) to 'rgb2hsv1/h_add_reg[12][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[12][2]' (FD) to 'rgb2hsv1/h_add_reg[12][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[12][3]' (FD) to 'rgb2hsv1/h_add_reg[12][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[12][4]' (FD) to 'rgb2hsv1/h_add_reg[12][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[12][5]' (FD) to 'rgb2hsv1/h_add_reg[12][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[12][6]' (FD) to 'rgb2hsv1/h_add_reg[12][0]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[13][0]' (FD) to 'rgb2hsv1/h_add_reg[13][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[13][1]' (FD) to 'rgb2hsv1/h_add_reg[13][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[13][2]' (FD) to 'rgb2hsv1/h_add_reg[13][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[13][2]' (FD) to 'rgb2hsv1/h_add_reg[13][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[13][3]' (FD) to 'rgb2hsv1/h_add_reg[13][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[13][4]' (FD) to 'rgb2hsv1/h_add_reg[13][6]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[13][5]' (FD) to 'rgb2hsv1/h_add_reg[13][7]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[13][6]' (FD) to 'rgb2hsv1/h_add_reg[13][0]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/my_r_reg[0]' (FD) to 'rgb2hsv1/my_r_reg[3]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/my_g_reg[0]' (FD) to 'rgb2hsv1/my_r_reg[3]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/my_b_reg[0]' (FD) to 'rgb2hsv1/my_r_reg[3]'
@@ -499,32 +496,26 @@ INFO: [Synth 8-3886] merging instance 'rgb2hsv1/my_r_reg[2]' (FD) to 'rgb2hsv1/m
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/my_b_reg[2]' (FD) to 'rgb2hsv1/my_r_reg[3]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/my_r_reg[3]' (FD) to 'rgb2hsv1/my_b_reg[3]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[14][0]' (FD) to 'rgb2hsv1/h_add_reg[14][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[14][1]' (FD) to 'rgb2hsv1/h_add_reg[14][5]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[14][2]' (FD) to 'rgb2hsv1/h_add_reg[14][6]'
+INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[14][2]' (FD) to 'rgb2hsv1/h_add_reg[14][4]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[14][3]' (FD) to 'rgb2hsv1/h_add_reg[14][5]'
 INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[14][4]' (FD) to 'rgb2hsv1/h_add_reg[14][6]'
-INFO: [Synth 8-3886] merging instance 'rgb2hsv1/h_add_reg[14][5]' (FD) to 'rgb2hsv1/h_add_reg[14][7]'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/h_bottom_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[13] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/divider_copy_reg[31] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_temp_reg[4] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/negative_output_reg )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/b0_inferred /\rgb2hsv1/hue_div2/b_reg[1] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/b0_inferred /\rgb2hsv1/hue_div2/b_reg[2] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/b0_inferred /\rgb2hsv1/hue_div2/b_reg[3] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/b0_inferred /\rgb2hsv1/hue_div2/b_reg[5] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/b0_inferred /\rgb2hsv1/hue_div2/b_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[7] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[8] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[9] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[10] )
@@ -534,6 +525,13 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[14] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[15] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[7] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
@@ -557,7 +555,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 926.945 ; gain = 377.547
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:25 . Memory (MB): peak = 924.789 ; gain = 376.191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -585,13 +583,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:18:31 . Memory (MB): peak = 934.605 ; gain = 385.207
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:41 . Memory (MB): peak = 933.285 ; gain = 384.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:18:33 . Memory (MB): peak = 969.934 ; gain = 420.535
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 990.555 ; gain = 441.957
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -603,7 +601,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:02 ; elapsed = 00:18:34 . Memory (MB): peak = 978.961 ; gain = 429.563
+Finished Technology Mapping : Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 991.563 ; gain = 442.965
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -627,7 +625,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:05 ; elapsed = 00:18:37 . Memory (MB): peak = 982.754 ; gain = 433.355
+Finished IO Insertion : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 992.375 ; gain = 443.777
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -640,7 +638,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:05 ; elapsed = 00:18:37 . Memory (MB): peak = 982.754 ; gain = 433.355
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 992.375 ; gain = 443.777
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -652,25 +650,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:05 ; elapsed = 00:18:37 . Memory (MB): peak = 982.754 ; gain = 433.355
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 992.375 ; gain = 443.777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:05 ; elapsed = 00:18:37 . Memory (MB): peak = 982.754 ; gain = 433.355
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 992.375 ; gain = 443.777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:05 ; elapsed = 00:18:37 . Memory (MB): peak = 982.754 ; gain = 433.355
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 992.375 ; gain = 443.777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:05 ; elapsed = 00:18:37 . Memory (MB): peak = 982.754 ; gain = 433.355
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 992.375 ; gain = 443.777
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -682,7 +680,7 @@ Static Shift Register Report:
 +------------+-----------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 |top_level   | rgb2hsv1/h_add_reg[18][7]   | 18     | 2     | NO           | NO                 | YES               | 0      | 2       | 
 |top_level   | rgb2hsv1/h_negative_reg[18] | 18     | 1     | NO           | NO                 | YES               | 0      | 1       | 
-|top_level   | rgb2hsv1/v_reg[7]           | 20     | 3     | NO           | NO                 | YES               | 0      | 3       | 
+|top_level   | rgb2hsv1/v_reg[7]           | 20     | 4     | NO           | NO                 | YES               | 0      | 4       | 
 +------------+-----------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
 
 ---------------------------------------------------------------------------------
@@ -706,17 +704,17 @@ Report Cell Usage:
 |1     |blk_mem_gen_0 |     1|
 |2     |BUFG          |     3|
 |3     |CARRY4        |    56|
-|4     |DSP48E1       |     1|
-|5     |LUT1          |    10|
-|6     |LUT2          |   102|
-|7     |LUT3          |    51|
-|8     |LUT4          |   106|
-|9     |LUT5          |    51|
-|10    |LUT6          |    96|
+|4     |DSP48E1_1     |     1|
+|5     |LUT1          |    12|
+|6     |LUT2          |    97|
+|7     |LUT3          |    19|
+|8     |LUT4          |   115|
+|9     |LUT5          |    53|
+|10    |LUT6          |    93|
 |11    |MMCME2_ADV    |     1|
-|12    |SRLC32E       |     6|
-|13    |FDRE          |   318|
-|14    |FDSE          |    13|
+|12    |SRLC32E       |     7|
+|13    |FDRE          |   306|
+|14    |FDSE          |     9|
 |15    |IBUF          |    31|
 |16    |OBUF          |    54|
 +------+--------------+------+
@@ -725,39 +723,39 @@ Report Instance Areas:
 +------+-------------+-------------+------+
 |      |Instance     |Module       |Cells |
 +------+-------------+-------------+------+
-|1     |top          |             |   915|
-|2     |  centroid1  |centroid     |   236|
+|1     |top          |             |   873|
+|2     |  centroid1  |centroid     |   272|
 |3     |  clkdivider |clk_wiz_lab3 |     4|
-|4     |  db1        |debounce     |    36|
+|4     |  db1        |debounce     |    35|
 |5     |  display    |display_8hex |    45|
-|6     |  my_camera  |camera_read  |    58|
+|6     |  my_camera  |camera_read  |    22|
 |7     |  pg         |pong_game    |    10|
 |8     |    square   |blob         |    10|
-|9     |  rgb2hsv1   |rgb2hsv      |   132|
-|10    |  xvga1      |xvga         |   176|
+|9     |  rgb2hsv1   |rgb2hsv      |   151|
+|10    |  xvga1      |xvga         |   142|
 +------+-------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:05 ; elapsed = 00:18:37 . Memory (MB): peak = 982.754 ; gain = 433.355
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 992.375 ; gain = 443.777
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 13 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:57 ; elapsed = 00:18:34 . Memory (MB): peak = 982.754 ; gain = 300.750
-Synthesis Optimization Complete : Time (s): cpu = 00:01:06 ; elapsed = 00:18:38 . Memory (MB): peak = 982.754 ; gain = 433.355
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:37 ; elapsed = 00:00:46 . Memory (MB): peak = 992.375 ; gain = 313.547
+Synthesis Optimization Complete : Time (s): cpu = 00:00:47 ; elapsed = 00:00:50 . Memory (MB): peak = 992.375 ; gain = 443.777
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 58 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 998.816 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 992.375 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-215 Infos, 31 Warnings, 0 Critical Warnings and 0 Errors encountered.
+214 Infos, 36 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:13 ; elapsed = 00:18:46 . Memory (MB): peak = 998.816 ; gain = 707.992
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 998.816 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:54 ; elapsed = 00:00:59 . Memory (MB): peak = 992.375 ; gain = 701.234
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 992.375 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/top_level.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 17 18:41:17 2019...
+INFO: [Common 17-206] Exiting Vivado at Tue Nov 19 00:03:48 2019...

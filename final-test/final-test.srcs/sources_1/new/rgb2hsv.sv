@@ -19,13 +19,19 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module rgb2hsv(clock, reset, r, g, b, green);
+module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower);
 		input wire clock;
 		input wire reset;
 		input wire [7:0] r;
 		input wire [7:0] g;
 		input wire [7:0] b;
-		output logic green;
+		output wire green;
+		input logic [6:0] h_upper;
+		input logic [6:0] h_lower;
+		input logic [7:0] v_upper;
+		input logic [5:0] v_lower;
+		
+		
 		reg [7:0] h;
 		reg [7:0] s;
 		reg [7:0] v;
@@ -49,6 +55,7 @@ module rgb2hsv(clock, reset, r, g, b, green);
 		reg [4:0] i;
 		logic s_ready;
 		logic h_ready;
+		
 		
 		// Clocks 4-18: perform all the divisions
 		//the s_divider (16/16) has delay 18
@@ -151,10 +158,17 @@ module rgb2hsv(clock, reset, r, g, b, green);
 			s <= s_quotient;
 			v <= v_delay[19];
 			
-			if (h< 90 && h>30 && v<255 && v>80) begin
+		end
+		
+		assign green = ((h< h_upper) && (h>h_lower) && (v<v_upper) && (v>v_lower)) ? 1 : 0;
+			/*if ((h< 90) && (h>30) && (v<255) && (v>80)) begin
+			//if (h< h_upper && h>h_lower && v<v_upper && v>v_lower) begin
 			    green <= 1;
 			end else begin
 			    green <= 0;
 			end
-		end
+		end*/
+		
+		
+		
 endmodule

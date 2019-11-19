@@ -91,8 +91,16 @@ module top_level(
     
     logic [10:0] centroid_x;
     logic [9:0] centroid_y;
-    logic green;
+    wire green;
     logic frame_done;
+    
+    logic [15:0] averaging;
+    assign averaging = sw;
+    
+    logic [6:0] h_upper;
+    logic [6:0] h_lower;
+    logic [7:0] v_upper;
+    logic [5:0] v_lower;
     
     assign frame_done = (hcount==320 && vcount==240) ? 1 : 0;
     
@@ -133,7 +141,7 @@ module top_level(
         pixel_in <= pixel_buff;
         old_output_pixels <= output_pixels;
         xclk_count <= xclk_count + 2'b01;
-        if (sw[3])begin
+        /*if (sw[3])begin
             //processed_pixels <= {red_diff<<2, green_diff<<2, blue_diff<<2};
             processed_pixels <= output_pixels - old_output_pixels;
         end else if (sw[4]) begin
@@ -154,24 +162,40 @@ module top_level(
             end else begin
                 processed_pixels <= 12'h000;
             end
-        end else begin
-            processed_pixels = {output_pixels[15:12],output_pixels[10:7],output_pixels[4:1]};
-        end
+        end else begin*/
+        processed_pixels = {output_pixels[15:12],output_pixels[10:7],output_pixels[4:1]};
+        //end
             
     end
     
-    rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r(vga_r<<4), .g(vga_g<<4), .b(vga_b<<4), .green(green));
+//    assign h_upper = 96;
+//    assign h_lower = 30;
+    assign h_upper = sw[15:9]; //96
+    assign h_lower = sw[6:0]; //48
+    assign v_upper = 255;
+    assign v_lower = 80;
+//    assign v_upper = sw[15:8];
+//    assign v_lower = sw[5:0];
     
-    logic [0:16] count;
+    rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r((hcount<320 && vcount<240)? cam[11:8]<<4 : 0), .g((hcount<320 && vcount<240)? cam[7:4]<<4 : 0), .b((hcount<320 && vcount<240)? cam[3:0]<<4 : 0), .green(green), .h_upper(h_upper), .h_lower(h_lower), .v_upper(v_upper), .v_lower(v_lower));
     
-    centroid centroid1 (.clock(clk_65mhz), .reset(reset), .x(hcount), .y(vcount), .green(green), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count));
+    logic [16:0] count;
     
-    assign pixel_addr_out = sw[2]?((hcount>>1)+(vcount>>1)*32'd320):hcount+vcount*32'd320;
+
+    
+    centroid centroid1 (.clock(clk_65mhz), .reset(reset), .x(hcount), .y(vcount), .green(green), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
+    
+    assign pixel_addr_out = hcount+vcount*32'd320;
+    //assign pixel_addr_out = sw[2]?((hcount>>1)+(vcount>>1)*32'd320):hcount+vcount*32'd320;
     //assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
     
     //assign frame_buff_out = 
     
-    assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
+    assign cam = 0&&((hcount<640) &&  (vcount<480))?frame_buff_out:1&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
+    
+/*    always_ff @(posedge clk_65mhz) begin
+        
+    end*/
     
     display_8hex display(.clk_in(clk_65mhz),.data_in(count), .seg_out(segments), .strobe_out(an));
     
@@ -210,29 +234,17 @@ module top_level(
 
     reg b,hs,vs;
     always_ff @(posedge clk_65mhz) begin
-      if (sw[1:0] == 2'b01) begin
-         // 1 pixel outline of visible area (white)
-         hs <= hsync;
-         vs <= vsync;
-         b <= blank;
-         rgb <= {12{border}};
-      end else if (sw[1:0] == 2'b10) begin
-         // color bars
-         hs <= hsync;
-         vs <= vsync;
-         b <= blank;
-         rgb <= {{4{hcount[8]}}, {4{hcount[7]}}, {4{hcount[6]}}} ;
-      end else begin
          // default: pong
          hs <= phsync;
          vs <= pvsync;
          b <= pblank;
-         if (pixel > 0) begin
+         if (pixel > 0 && hcount<320 && vcount<240) begin
             rgb <= pixel;
+         end else if (green && hcount<320 && vcount<240) begin
+            rgb <= 12'h062;
          end else begin
-            rgb <= cam; //toggle for pong or camera display
+            rgb <= cam; 
          end
-      end
     end
 
 //    assign rgb = sw[0] ? {12{border}} : pixel ; //{{4{hcount[7]}}, {4{hcount[6]}}, {4{hcount[5]}}};
@@ -241,11 +253,20 @@ module top_level(
     assign vga_r = ~b ? rgb[11:8]: 0;
     assign vga_g = ~b ? rgb[7:4] : 0;
     assign vga_b = ~b ? rgb[3:0] : 0;
+    
 
     assign vga_hs = ~hs;
     assign vga_vs = ~vs;
     
-    //assign hsync_out = hsync_shift_reg[sync_dly-1]
+    logic [21:0] hsync_shift_reg;
+    logic [21:0] vsync_shift_reg;
+    logic [4:0] sync_dly;
+    assign sync_dly = 22;
+    
+    assign hs = hsync_shift_reg[sync_dly-1];
+    assign vs = vsync_shift_reg[sync_dly-1];
+
+    //assign hsync_out = hsync_shift_reg[sync_dly-1];
     //for hs, vs, and b (blank_out)
     //dwofk virtual passport
     //assign v_sync = vsync_out;
@@ -292,7 +313,7 @@ module pong_game (
    // checkerboard
 
    //assign pixel_out = {{4{checkerboard[2]}}, {4{checkerboard[1]}}, {4{checkerboard[0]}}} ;
-         blob #(.WIDTH(30),.HEIGHT(20),.COLOR(12'h0F0))   // green
+         blob #(.WIDTH(10),.HEIGHT(6),.COLOR(12'h0F0))   // green
         square(.x_in(centroid_x),.y_in(centroid_y),.hcount_in(hcount_in),.vcount_in(vcount_in),
              .pixel_out(pixel_out));
 endmodule

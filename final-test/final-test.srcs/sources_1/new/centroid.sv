@@ -23,19 +23,19 @@
 //frame done
 //update centroid_x, centroid_y when done
 //send in x, y, isgreen
-module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, count);
+module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, count, averaging);
     input logic clock;
     input logic reset;
     input logic [10:0] x;
     input logic [9:0] y;
     input logic green;
     input logic frame_done;
-    
+    input logic [15:0] averaging;
     output logic [10:0] centroid_x;
     output logic [9:0] centroid_y;
     logic [26:0] x_acc;
     logic [25:0] y_acc;
-    output logic [0:16] count;
+    output logic [16:0] count;
     logic last_frame_done;
     
     always_ff @(posedge clock) begin
@@ -47,7 +47,7 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, c
             centroid_y <= 0;
         end
         else if (frame_done) begin
-            if (count >25000) begin 
+            /*if (count >25000) begin 
                 centroid_x <= x_acc>>15;
                 centroid_y <= y_acc>>15;
             end else if (count >12000) begin
@@ -60,9 +60,11 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, c
                 centroid_x <= x_acc>>6;
                 centroid_y <= y_acc>>6;
             end else begin
-                centroid_x <= x_acc>>12;
-                centroid_y <= y_acc>>12;
-            end
+                centroid_x <= x_acc>>13;
+                centroid_y <= y_acc>>13;
+            end*/
+            centroid_x <= (x_acc>>averaging)-22;  //d or e (13 or 14) seems good
+            centroid_y <= (y_acc>>averaging)-22;
          end
          else if (!frame_done && last_frame_done) begin
             x_acc <= 0;

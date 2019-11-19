@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Sun Nov 17 18:42:38 2019
+| Date         : Tue Nov 19 00:04:57 2019
 | Host         : DESKTOP-7EQCPG5 running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file top_level_control_sets_placed.rpt
 | Design       : top_level
@@ -42,8 +42,8 @@ Table of Contents
 | Total control sets |    16 |
 | >= 0 to < 4        |     2 |
 | >= 4 to < 6        |     4 |
-| >= 6 to < 8        |     0 |
-| >= 8 to < 10       |     2 |
+| >= 6 to < 8        |     2 |
+| >= 8 to < 10       |     0 |
 | >= 10 to < 12      |     2 |
 | >= 12 to < 14      |     1 |
 | >= 14 to < 16      |     0 |
@@ -58,37 +58,37 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             153 |           64 |
+| No           | No                    | No                     |             135 |           60 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |              36 |           14 |
-| Yes          | No                    | No                     |              17 |            5 |
+| No           | Yes                   | No                     |              40 |           19 |
+| Yes          | No                    | No                     |              13 |           12 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             136 |           48 |
+| Yes          | Yes                   | No                     |             138 |           45 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
 4. Detailed Control Set Information
 -----------------------------------
 
-+----------------------+--------------------------------------+---------------------------+------------------+----------------+
-|     Clock Signal     |             Enable Signal            |      Set/Reset Signal     | Slice Load Count | Bel Load Count |
-+----------------------+--------------------------------------+---------------------------+------------------+----------------+
-|  clkdivider/clk_out1 |                                      | display/p_0_in[0]         |                1 |              1 |
-|  clkdivider/clk_out1 | db1/new_input_i_1_n_0                |                           |                1 |              1 |
-|  pclk_in_BUFG        |                                      |                           |                1 |              4 |
-|  clkdivider/clk_out1 |                                      | xvga1/hcount_out_reg[7]_1 |                1 |              4 |
-|  clkdivider/clk_out1 |                                      | xvga1/hcount_out_reg[6]_0 |                2 |              4 |
-|  clkdivider/clk_out1 |                                      | xvga1/hcount_out_reg[8]_0 |                3 |              4 |
-|  pclk_in_BUFG        | my_camera/pixel_data_out[15]_i_1_n_0 |                           |                2 |              8 |
-|  pclk_in_BUFG        | my_camera/__0/i__n_0                 |                           |                2 |              8 |
-|  clkdivider/clk_out1 | xvga1/hreset                         | xvga1/vcount_out0         |                5 |             10 |
-|  clkdivider/clk_out1 |                                      | xvga1/hreset              |                4 |             11 |
-|  clkdivider/clk_out1 |                                      | b_reg_n_0                 |                3 |             12 |
-|  pclk_in_BUFG        | my_camera/valid_pixel                | my_camera/frame_done_out  |                5 |             17 |
-|  clkdivider/clk_out1 | db1/count                            | db1/new_input_i_1_n_0     |                5 |             20 |
-|  clkdivider/clk_out1 | xvga1/E[0]                           | db1/reset                 |               14 |             21 |
-|  clkdivider/clk_out1 | rgb2hsv1/x_acc                       | db1/clean_out_reg_0       |               19 |             68 |
-|  clkdivider/clk_out1 |                                      |                           |               63 |            155 |
-+----------------------+--------------------------------------+---------------------------+------------------+----------------+
++----------------------+--------------------------------------+-------------------------------+------------------+----------------+
+|     Clock Signal     |             Enable Signal            |        Set/Reset Signal       | Slice Load Count | Bel Load Count |
++----------------------+--------------------------------------+-------------------------------+------------------+----------------+
+|  clkdivider/clk_out1 |                                      | display/strobe_out[1]_i_1_n_0 |                1 |              1 |
+|  clkdivider/clk_out1 | db1/new_input_i_1_n_0                |                               |                1 |              1 |
+|  clkdivider/clk_out1 |                                      | display/seg_out[5]_i_1_n_0    |                4 |              4 |
+|  clkdivider/clk_out1 |                                      | display/p_0_in[2]             |                2 |              4 |
+|  pclk_in_BUFG        |                                      |                               |                1 |              4 |
+|  pclk_in_BUFG        | my_camera/__0/i__n_0                 |                               |                4 |              5 |
+|  clkdivider/clk_out1 |                                      | xvga1/hcount_out_reg[8]_2     |                3 |              7 |
+|  pclk_in_BUFG        | my_camera/pixel_data_out[15]_i_1_n_0 |                               |                7 |              7 |
+|  clkdivider/clk_out1 | xvga1/hreset                         | xvga1/vcount_out0             |                5 |             10 |
+|  clkdivider/clk_out1 |                                      | xvga1/hreset                  |                4 |             11 |
+|  clkdivider/clk_out1 |                                      | xvga1/hcount_out_reg[8]_1     |                5 |             13 |
+|  pclk_in_BUFG        | my_camera/valid_pixel                | my_camera/frame_done_out      |                5 |             17 |
+|  clkdivider/clk_out1 | db1/count                            | db1/new_input_i_1_n_0         |                5 |             20 |
+|  clkdivider/clk_out1 | xvga1/E[0]                           | db1/reset                     |               11 |             21 |
+|  clkdivider/clk_out1 | rgb2hsv1/x_acc                       | xvga1/last_frame_done_reg     |               19 |             70 |
+|  clkdivider/clk_out1 |                                      |                               |               59 |            138 |
++----------------------+--------------------------------------+-------------------------------+------------------+----------------+
 
 
