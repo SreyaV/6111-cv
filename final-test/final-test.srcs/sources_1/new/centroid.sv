@@ -70,7 +70,7 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, c
             //ready <= 1;
             centroid_x <= centroid_x_temp[33:24]-30;  //d or e (13 or 14) seems good
             centroid_y <= centroid_y_temp[32:24];
-         end
+         end    
          else if (!frame_done && last_frame_done) begin
             x_acc <= 0;
             y_acc <= 0;

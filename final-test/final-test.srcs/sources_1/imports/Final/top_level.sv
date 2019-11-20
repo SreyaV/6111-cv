@@ -79,7 +79,7 @@ module top_level(
     logic [11:0] frame_buff_out;
     logic [15:0] output_pixels;
     logic [15:0] old_output_pixels;
-    logic [12:0] processed_pixels;
+    logic [11:0] processed_pixels; //changed from 12:0
     logic [3:0] red_diff;
     logic [3:0] green_diff;
     logic [3:0] blue_diff;
@@ -108,19 +108,19 @@ module top_level(
     assign jbclk = xclk;
     assign jdclk = xclk;
     
-    assign red_diff = (output_pixels[15:12]>old_output_pixels[15:12])?output_pixels[15:12]-old_output_pixels[15:12]:old_output_pixels[15:12]-output_pixels[15:12];
-    assign green_diff = (output_pixels[10:7]>old_output_pixels[10:7])?output_pixels[10:7]-old_output_pixels[10:7]:old_output_pixels[10:7]-output_pixels[10:7];
-    assign blue_diff = (output_pixels[4:1]>old_output_pixels[4:1])?output_pixels[4:1]-old_output_pixels[4:1]:old_output_pixels[4:1]-output_pixels[4:1];
+//    assign red_diff = (output_pixels[15:12]>old_output_pixels[15:12])?output_pixels[15:12]-old_output_pixels[15:12]:old_output_pixels[15:12]-output_pixels[15:12];
+//    assign green_diff = (output_pixels[10:7]>old_output_pixels[10:7])?output_pixels[10:7]-old_output_pixels[10:7]:old_output_pixels[10:7]-output_pixels[10:7];
+//    assign blue_diff = (output_pixels[4:1]>old_output_pixels[4:1])?output_pixels[4:1]-old_output_pixels[4:1]:old_output_pixels[4:1]-output_pixels[4:1];
 
     
     
-    blk_mem_gen_0 jojos_bram(.addra(pixel_addr_in), 
+    /*blk_mem_gen_0 jojos_bram(.addra(pixel_addr_in), 
                              .clka(pclk_in),
                              .dina(processed_pixels),
                              .wea(valid_pixel),
                              .addrb(pixel_addr_out),
                              .clkb(clk_65mhz),
-                             .doutb(frame_buff_out));
+                             .doutb(frame_buff_out));*/
                              
                              //delete all
                              //make 2 fifos, one for address and one for pixel
@@ -129,6 +129,8 @@ module top_level(
                              //write out on 65mhz clock
                              //write out framebuffout and pixel addr out
                              //make fifos from ip catalog
+                             
+      
                              
     
     always_ff @(posedge pclk_in)begin
@@ -150,31 +152,7 @@ module top_level(
         pixel_in <= pixel_buff;
         old_output_pixels <= output_pixels;
         xclk_count <= xclk_count + 2'b01;
-        /*if (sw[3])begin
-            //processed_pixels <= {red_diff<<2, green_diff<<2, blue_diff<<2};
-            processed_pixels <= output_pixels - old_output_pixels;
-        end else if (sw[4]) begin
-            if ((output_pixels[15:12]>4'b1000)&&(output_pixels[10:7]<4'b1000)&&(output_pixels[4:1]<4'b1000))begin
-                processed_pixels <= 12'hF00;
-            end else begin
-                processed_pixels <= 12'h000;
-            end
-        end else if (sw[5]) begin
-            if ((output_pixels[15:12]<4'b1000)&&(output_pixels[10:7]>4'b1000)&&(output_pixels[4:1]<4'b1000))begin
-                processed_pixels <= 12'h0F0;
-            end else begin
-                processed_pixels <= 12'h000;
-            end
-        end else if (sw[6]) begin
-            if ((output_pixels[15:12]<4'b1000)&&(output_pixels[10:7]<4'b1000)&&(output_pixels[4:1]>4'b1000))begin
-                processed_pixels <= 12'h00F;
-            end else begin
-                processed_pixels <= 12'h000;
-            end
-        end else begin*/
-        processed_pixels = {output_pixels[15:12],output_pixels[10:7],output_pixels[4:1]};
-        //end
-            
+        processed_pixels = {output_pixels[15:12],output_pixels[10:7],output_pixels[4:1]};    
     end
     
     logic [7:0] h;
