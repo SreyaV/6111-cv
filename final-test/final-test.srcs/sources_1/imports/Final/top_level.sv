@@ -255,8 +255,8 @@ module top_level(
             
          if (hcount <320 && vcount<240 && (vcount==centroid_y || hcount==centroid_x)) begin
             rgb <= 12'hF00;
-         end else if (green && hcount<320 && vcount<240) begin
-            rgb <= 12'h062;
+         //end else if (green && hcount<320 && vcount<240) begin
+           // rgb <= 12'h062;
          end else begin
             rgb <= cam; 
             //rgb <= 12'h000;
