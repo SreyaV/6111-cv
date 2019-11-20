@@ -44,6 +44,9 @@ read_verilog -library xil_defaultlib {{C:/Users/Sreya Vangara/Documents/MIT/6.11
 read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc}}]
 
+read_ip -quiet {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div.xci}}
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div_ooc.xdc}}]
+
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be

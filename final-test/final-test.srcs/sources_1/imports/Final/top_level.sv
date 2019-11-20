@@ -121,6 +121,15 @@ module top_level(
                              .addrb(pixel_addr_out),
                              .clkb(clk_65mhz),
                              .doutb(frame_buff_out));
+                             
+                             //delete all
+                             //make 2 fifos, one for address and one for pixel
+                             //add in processed pixel and pixel addr
+                             //add in on wea = valid pixel
+                             //write out on 65mhz clock
+                             //write out framebuffout and pixel addr out
+                             //make fifos from ip catalog
+                             
     
     always_ff @(posedge pclk_in)begin
         if (frame_done_out)begin
@@ -168,20 +177,20 @@ module top_level(
             
     end
     
-//    assign h_upper = 96;
-//    assign h_lower = 30;
-    assign h_upper = sw[15:9]; //96
-    assign h_lower = sw[6:0]; //48
+    logic [7:0] h;
+    logic [7:0] out_v;
+    assign h_upper = 96;
+    assign h_lower = 30;
+//    assign h_upper = sw[15:9]; //96
+//    assign h_lower = sw[6:0]; //48
     assign v_upper = 255;
-    assign v_lower = 80;
+    assign v_lower = 207;
 //    assign v_upper = sw[15:8];
-//    assign v_lower = sw[5:0];
+//    assign v_lower = sw[7:0];
     
-    rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r((hcount<320 && vcount<240)? cam[11:8]<<4 : 0), .g((hcount<320 && vcount<240)? cam[7:4]<<4 : 0), .b((hcount<320 && vcount<240)? cam[3:0]<<4 : 0), .green(green), .h_upper(h_upper), .h_lower(h_lower), .v_upper(v_upper), .v_lower(v_lower));
+    rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r((hcount<320 && vcount<240)? cam[11:8]<<4 : 0), .g((hcount<320 && vcount<240)? cam[7:4]<<4 : 0), .b((hcount<320 && vcount<240)? cam[3:0]<<4 : 0), .green(green), .h_upper(h_upper), .h_lower(h_lower), .v_upper(v_upper), .v_lower(v_lower), .out_v(out_v));
     
     logic [16:0] count;
-    
-
     
     centroid centroid1 (.clock(clk_65mhz), .reset(reset), .x(hcount), .y(vcount), .green(green), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
     
@@ -197,7 +206,10 @@ module top_level(
         
     end*/
     
-    display_8hex display(.clk_in(clk_65mhz),.data_in(count), .seg_out(segments), .strobe_out(an));
+    logic [7:0] display_v;
+    assign display_v = (hcount==160 && vcount==120) ? out_v : display_v;
+    
+    display_8hex display(.clk_in(clk_65mhz),.data_in(display_v), .seg_out(segments), .strobe_out(an));
     
     //hcount vcount and frame_buff_out bc theyre all synchronized here
     //put throug rgb to hsv module
@@ -238,12 +250,16 @@ module top_level(
          hs <= phsync;
          vs <= pvsync;
          b <= pblank;
-         if (pixel > 0 && hcount<320 && vcount<240) begin
-            rgb <= pixel;
+//         if (pixel > 0 && hcount<320 && vcount<240) begin
+//            rgb <= pixel;
+            
+         if (hcount <320 && vcount<240 && (vcount==centroid_y || hcount==centroid_x)) begin
+            rgb <= 12'hF00;
          end else if (green && hcount<320 && vcount<240) begin
             rgb <= 12'h062;
          end else begin
             rgb <= cam; 
+            //rgb <= 12'h000;
          end
     end
 

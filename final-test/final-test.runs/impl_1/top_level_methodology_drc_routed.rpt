@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Tue Nov 19 00:07:00 2019
+| Date         : Tue Nov 19 19:56:31 2019
 | Host         : DESKTOP-7EQCPG5 running 64-bit major release  (build 9200)
 | Command      : report_methodology -file top_level_methodology_drc_routed.rpt -pb top_level_methodology_drc_routed.pb -rpx top_level_methodology_drc_routed.rpx
 | Design       : top_level
@@ -23,11 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 71
+             Violations found: 75
 +-----------+------------------+-----------------------------+------------+
 | Rule      | Severity         | Description                 | Violations |
 +-----------+------------------+-----------------------------+------------+
 | TIMING-17 | Critical Warning | Non-clocked sequential cell | 71         |
+| TIMING-20 | Warning          | Non-clocked latch           | 4          |
 +-----------+------------------+-----------------------------+------------+
 
 2. REPORT DETAILS
@@ -385,6 +386,26 @@ Related violations: <none>
 TIMING-17#71 Critical Warning
 Non-clocked sequential cell  
 The clock pin pixel_addr_in_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#1 Warning
+Non-clocked latch  
+The latch display_v[-1111111104] cannot be properly analyzed as its control pin display_v[-1111111104]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#2 Warning
+Non-clocked latch  
+The latch display_v[-1111111105] cannot be properly analyzed as its control pin display_v[-1111111105]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#3 Warning
+Non-clocked latch  
+The latch display_v[-1111111106] cannot be properly analyzed as its control pin display_v[-1111111106]/G is not reached by a timing clock
+Related violations: <none>
+
+TIMING-20#4 Warning
+Non-clocked latch  
+The latch display_v[-1111111107] cannot be properly analyzed as its control pin display_v[-1111111107]/G is not reached by a timing clock
 Related violations: <none>
 
 

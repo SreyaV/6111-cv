@@ -9,6 +9,7 @@
 // 
 // Author Logan Williams, updated 11/25/2018 gph
 
+//module divider #(parameter WIDTH = 16) 
 module divider #(parameter WIDTH = 16) 
   (input clk, sign, start,
    input [WIDTH-1:0] dividend, 

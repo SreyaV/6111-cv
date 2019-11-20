@@ -1,4 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../final-test.srcs/sources_1/ip/hue_div2/sim/hue_div2.vhd" \
-
-nosort

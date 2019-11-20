@@ -77,6 +77,7 @@ set rc [catch {
   set_property XPM_LIBRARIES XPM_MEMORY [current_project]
   add_files -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/top_level.dcp}}
   read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}
+  read_ip -quiet {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div.xci}}
   read_xdc {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc}}
   link_design -top top_level -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb

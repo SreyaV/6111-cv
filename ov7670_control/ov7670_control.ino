@@ -7,7 +7,7 @@
 
 #include <Wire.h>
 
-/*These are settings some of which have been found empirically and/or found 
+/*These are settings some of which have bekkjen found empirically and/or found 
 from random internet sites. When you see that there's a "magic" number it 
 isn't a magic number like in comp sci or something...it just means we have 
 no idea why this register value seems to help since the data sheet doesn't 

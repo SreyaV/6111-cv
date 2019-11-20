@@ -19,7 +19,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower);
+module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower, out_v);
 		input wire clock;
 		input wire reset;
 		input wire [7:0] r;
@@ -55,6 +55,7 @@ module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower)
 		reg [4:0] i;
 		logic s_ready;
 		logic h_ready;
+		output logic [7:0] out_v;
 		
 		
 		// Clocks 4-18: perform all the divisions
@@ -161,6 +162,7 @@ module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower)
 		end
 		
 		assign green = ((h< h_upper) && (h>h_lower) && (v<v_upper) && (v>v_lower)) ? 1 : 0;
+		assign out_v = v;
 			/*if ((h< 90) && (h>30) && (v<255) && (v>80)) begin
 			//if (h< h_upper && h>h_lower && v<v_upper && v>v_lower) begin
 			    green <= 1;

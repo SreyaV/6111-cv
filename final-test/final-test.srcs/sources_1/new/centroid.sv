@@ -33,10 +33,13 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, c
     input logic [15:0] averaging;
     output logic [10:0] centroid_x;
     output logic [9:0] centroid_y;
+    logic [55:0] centroid_x_temp;
+    logic [55:0] centroid_y_temp;
     logic [26:0] x_acc;
-    logic [25:0] y_acc;
+    logic [26:0] y_acc;
     output logic [16:0] count;
     logic last_frame_done;
+    logic ready;
     
     always_ff @(posedge clock) begin
         if (reset) begin
@@ -45,6 +48,7 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, c
             count <= 0;
             centroid_x <= 0;
             centroid_y <= 0;
+            ready <= 0;
         end
         else if (frame_done) begin
             /*if (count >25000) begin 
@@ -63,13 +67,15 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, c
                 centroid_x <= x_acc>>13;
                 centroid_y <= y_acc>>13;
             end*/
-            centroid_x <= (x_acc>>averaging)-22;  //d or e (13 or 14) seems good
-            centroid_y <= (y_acc>>averaging)-22;
+            //ready <= 1;
+            centroid_x <= centroid_x_temp[33:24];  //d or e (13 or 14) seems good
+            centroid_y <= centroid_y_temp[32:24];
          end
          else if (!frame_done && last_frame_done) begin
             x_acc <= 0;
             y_acc <= 0;
             count <= 0;
+            ready <= 0;
          end
          else begin
             if (green) begin
@@ -80,6 +86,26 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, c
          end
          last_frame_done <= frame_done;
     end
+    
+    centroid_div xcenter(
+    .aclk(clock),
+    .s_axis_divisor_tdata(count),
+    .s_axis_divisor_tvalid(1),
+    .s_axis_dividend_tdata(x_acc),
+    .s_axis_dividend_tvalid(1),
+    .m_axis_dout_tdata(centroid_x_temp),
+    .m_axis_dout_tvalid()
+  );
+  
+  centroid_div ycenter(
+    .aclk(clock),
+    .s_axis_divisor_tdata(count),
+    .s_axis_divisor_tvalid(1),
+    .s_axis_dividend_tdata(y_acc),
+    .s_axis_dividend_tvalid(1),
+    .m_axis_dout_tdata(centroid_y_temp),
+    .m_axis_dout_tvalid()
+  );
     
     
      
