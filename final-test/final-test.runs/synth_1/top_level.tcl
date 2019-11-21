@@ -27,7 +27,7 @@ set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
 set_property webtalk.parent_dir {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.cache/wt} [current_project]
 set_property parent.project_path {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.xpr} [current_project]
-set_property XPM_LIBRARIES XPM_MEMORY [current_project]
+set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property ip_output_repo {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.cache/ip} [current_project]
@@ -44,8 +44,23 @@ read_verilog -library xil_defaultlib {{C:/Users/Sreya Vangara/Documents/MIT/6.11
 read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc}}]
 
-read_ip -quiet {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div.xci}}
+read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div_ooc.xdc}}]
+
+read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12.xci}}
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12_clocks.xdc}}]
+
+read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11.xci}}
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11_clocks.xdc}}]
+
+read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10.xci}}
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10_ooc.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10_clocks.xdc}}]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

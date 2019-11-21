@@ -102,7 +102,12 @@ module top_level(
     logic [7:0] v_upper;
     logic [5:0] v_lower;
     
-    assign frame_done = (hcount==320 && vcount==240) ? 1 : 0;
+    logic [10:0] hcount_camera;
+    logic [9:0] vcount_camera;
+    logic [10:0] hcount_fifo;
+    logic [9:0] vcount_fifo;
+    
+    assign frame_done = (hcount_fifo==320 && vcount_fifo==240) ? 1 : 0;
     
     assign xclk = (xclk_count >2'b01);
     assign jbclk = xclk;
@@ -129,17 +134,89 @@ module top_level(
                              //write out on 65mhz clock
                              //write out framebuffout and pixel addr out
                              //make fifos from ip catalog
-                             
-      
-                             
-    
+
     always_ff @(posedge pclk_in)begin
         if (frame_done_out)begin
-            pixel_addr_in <= 17'b0;  
+            vcount_camera <= 0;
+            hcount_camera<=0;
+           // pixel_addr_in <= 17'b0;  
         end else if (valid_pixel)begin
-            pixel_addr_in <= pixel_addr_in +1;  
+            if (hcount_camera == 319) begin
+                hcount_camera <= 0;
+                vcount_camera <= vcount_camera+1;
+            end else begin
+                hcount_camera <= hcount_camera+1;
+            end
+            //pixel_addr_in <= pixel_addr_in +1;  
         end
     end
+
+    
+                             
+    logic full_pixel;
+    logic empty_pixel;  
+    logic full_x;
+    logic empty_x;
+    logic empty_y;
+    logic full_y;
+    
+  
+                                 
+     fifo_12 fifo_pixels(
+     .wr_clk(pclk_in),  // input wire wr_clk
+  .rd_clk(clk_65mhz),  // input wire rd_clk
+  //.clk(clk_65mhz),      // input wire clk
+  .rst(0),    // input wire srst
+  .din(processed_pixels),      // input wire [11 : 0] din
+  .wr_en(valid_pixel),  // input wire wr_en
+  .rd_en(!empty_pixel),  // input wire rd_en
+  .dout(frame_buff_out),    // output wire [11 : 0] dout
+  .full(full_pixel),    // output wire full
+  .empty(empty_pixel)  // output wire empty
+); 
+
+     fifo_11 fifo_hcount(
+     //.clk(clk_65mhz),      // input wire clk
+   .wr_clk(pclk_in),  // input wire wr_clk
+  .rd_clk(clk_65mhz),  // input wire rd_clk
+  .rst(0),    // input wire srst
+  .din(hcount_camera),      // input wire [11 : 0] din
+  .wr_en(valid_pixel),  // input wire wr_en
+  .rd_en(!empty_x),  // input wire rd_en
+  .dout(hcount_fifo ),    // output wire [11 : 0] dout
+  .full(full_x),    // output wire full
+  .empty(empty_x)  // output wire empty
+); 
+
+     fifo_10 fifo_vcount(
+  //   .clk(clk_65mhz),      // input wire clk
+  .wr_clk(pclk_in),  // input wire wr_clk
+  .rd_clk(clk_65mhz),  // input wire rd_clk
+  .rst(0),    // input wire srst
+  .din(vcount_camera),      // input wire [11 : 0] din
+  .wr_en(valid_pixel),  // input wire wr_en
+  .rd_en(!empty_y),  // input wire rd_en
+  .dout(vcount_fifo ),    // output wire [11 : 0] dout
+  .full(full_y),    // output wire full
+  .empty(empty_y)  // output wire empty
+); 
+
+    assign pixel_addr_in = hcount_fifo+vcount_fifo*32'd320;
+
+/*     fifo_17 fifo_addr(.clk(clk_65mhz),      // input wire clk
+  .srst(0),    // input wire srst
+  .din(pixel_addr_in),      // input wire [16 : 0] din
+  .wr_en(valid_pixel),  // input wire wr_en
+  .rd_en(clk_65mhz && !empty_addr),  // input wire rd_en
+  .dout(pixel_addr_out),    // output wire [16 : 0] dout
+  .full(full_addr),    // output wire full
+  .empty(empty_addr)  // output wire empty
+);*/
+
+
+                             
+    
+
     
     always_ff @(posedge clk_65mhz) begin
         pclk_buff <= jb[0];//WAS JB
@@ -165,29 +242,53 @@ module top_level(
     assign v_lower = 207;
 //    assign v_upper = sw[15:8];
 //    assign v_lower = sw[7:0];
+
+    assign cam = frame_buff_out;
     
-    rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r((hcount<320 && vcount<240)? cam[11:8]<<4 : 0), .g((hcount<320 && vcount<240)? cam[7:4]<<4 : 0), .b((hcount<320 && vcount<240)? cam[3:0]<<4 : 0), .green(green), .h_upper(h_upper), .h_lower(h_lower), .v_upper(v_upper), .v_lower(v_lower), .out_v(out_v));
+    rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .green(green), .h_upper(h_upper), .h_lower(h_lower), .v_upper(v_upper), .v_lower(v_lower), .out_v(out_v));
     
     logic [16:0] count;
     
-    centroid centroid1 (.clock(clk_65mhz), .reset(reset), .x(hcount), .y(vcount), .green(green), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
+    centroid centroid1 (.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .green(green), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
     
-    assign pixel_addr_out = hcount+vcount*32'd320;
+    //assign pixel_addr_out = hcount+vcount*32'd320;
     //assign pixel_addr_out = sw[2]?((hcount>>1)+(vcount>>1)*32'd320):hcount+vcount*32'd320;
     //assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
     
     //assign frame_buff_out = 
     
-    assign cam = 0&&((hcount<640) &&  (vcount<480))?frame_buff_out:1&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
+    //assign cam = 0&&((hcount<640) &&  (vcount<480))?frame_buff_out:1&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
     
 /*    always_ff @(posedge clk_65mhz) begin
         
     end*/
     
+    logic [11:0] vga_frame_buff_out;
+    logic [16:0] vga_pixel_addr_out;
+    assign vga_pixel_addr_out = hcount+vcount*32'd320;
+    
+    logic delayed_empty_pixel;
+    
+    always_ff @(posedge clk_65mhz) begin
+        delayed_empty_pixel <= empty_pixel;
+    end
+    
+       logic [11:0] temp_rgb;
+       
+       blk_mem_gen_0 jojos_bram(.addra(pixel_addr_in), 
+                             .clka(clk_65mhz),
+                             .dina(green ? 12'h062 : cam),
+                             .wea(!delayed_empty_pixel),
+                             .addrb(vga_pixel_addr_out),
+                             .clkb(clk_65mhz),
+                             .doutb(temp_rgb));
+                             
+    assign rgb = (hcount<320 && vcount<240) ? temp_rgb : 0;
+    
     logic [7:0] display_v;
     assign display_v = (hcount==160 && vcount==120) ? out_v : display_v;
     
-    display_8hex display(.clk_in(clk_65mhz),.data_in(display_v), .seg_out(segments), .strobe_out(an));
+    display_8hex display(.clk_in(clk_65mhz),.data_in(count), .seg_out(segments), .strobe_out(an));
     
     //hcount vcount and frame_buff_out bc theyre all synchronized here
     //put throug rgb to hsv module
@@ -198,6 +299,8 @@ module top_level(
 //                                        .probe2(vsync_in),
 //                                        .probe3(href_in),
 //                                        .probe4(jbclk));
+
+
                                         
    camera_read  my_camera(.p_clock_in(pclk_in),
                           .vsync_in(vsync_in),
@@ -231,14 +334,14 @@ module top_level(
 //         if (pixel > 0 && hcount<320 && vcount<240) begin
 //            rgb <= pixel;
             
-         if (hcount <320 && vcount<240 && (vcount==centroid_y || hcount==centroid_x)) begin
+         /*if (hcount <320 && vcount<240 && (vcount==centroid_y || hcount==centroid_x)) begin
             rgb <= 12'hF00;
          //end else if (green && hcount<320 && vcount<240) begin
            // rgb <= 12'h062;
          end else begin
             rgb <= cam; 
             //rgb <= 12'h000;
-         end
+         end*/
     end
 
 //    assign rgb = sw[0] ? {12{border}} : pixel ; //{{4{hcount[7]}}, {4{hcount[6]}}, {4{hcount[5]}}};

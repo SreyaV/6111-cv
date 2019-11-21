@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="centroid_div_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1574206753">
   <File Type="PA-TCL" Name="centroid_div.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="centroid_div_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="centroid_div_reports.tcl"/>
   <File Type="RDS-RDS" Name="centroid_div.vds"/>
   <File Type="RDS-UTIL" Name="centroid_div_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="centroid_div_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="centroid_div.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="centroid_div_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="centroid_div_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/centroid_div">
     <File Path="$PSRCDIR/sources_1/ip/centroid_div/centroid_div.xci">
       <FileInfo>
@@ -42,9 +39,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019">
-      <Desc>Vivado Synthesis Defaults</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2019"/>
     <Step Id="synth_design"/>
   </Strategy>
 </GenRun>

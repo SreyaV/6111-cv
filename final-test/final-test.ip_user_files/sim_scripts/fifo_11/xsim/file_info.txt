@@ -1,0 +1,2 @@
+fifo_11.v,verilog,xil_defaultlib,../../../../final-test.srcs/sources_1/ip/fifo_11/sim/fifo_11.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v
