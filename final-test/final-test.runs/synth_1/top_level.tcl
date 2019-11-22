@@ -17,7 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param chipscope.maxJobs 1
 set_param xicom.use_bs_reader 1
 create_project -in_memory -part xc7a100tcsg324-1
 
@@ -48,7 +47,7 @@ set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vanga
 read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div_ooc.xdc}}]
 
-read_ip -quiet {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33.xci}}
+read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33_clocks.xdc}}]
 set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33_ooc.xdc}}]
