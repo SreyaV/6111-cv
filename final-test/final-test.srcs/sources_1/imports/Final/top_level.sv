@@ -18,14 +18,6 @@ module top_level(
    output   jbclk,
    input [2:0] jd,
    output   jdclk,
-   output[3:0] vga_r,
-   output[3:0] vga_b,
-   output[3:0] vga_g,
-   //output [7:0] hue,
-   //output [7:0] saturation,
-   //output [7:0] value,
-   output vga_hs, //delay 22 cycles
-   output vga_vs, //delay 22 cycles
    output led16_b, led16_g, led16_r,
    output led17_b, led17_g, led17_r,
    output[15:0] led,
@@ -58,8 +50,7 @@ module top_level(
     wire hsync, vsync, blank;
     wire [11:0] pixel;
     reg [11:0] rgb;    
-    xvga xvga1(.vclock_in(clk_65mhz),.hcount_out(hcount),.vcount_out(vcount),
-          .hsync_out(hsync),.vsync_out(vsync),.blank_out(blank));
+
 
 
     // btnc button is user reset
@@ -80,9 +71,6 @@ module top_level(
     logic [15:0] output_pixels;
     logic [15:0] old_output_pixels;
     logic [11:0] processed_pixels; //changed from 12:0
-    logic [3:0] red_diff;
-    logic [3:0] green_diff;
-    logic [3:0] blue_diff;
     logic valid_pixel;
     logic frame_done_out;
     
@@ -113,27 +101,9 @@ module top_level(
     assign jbclk = xclk;
     assign jdclk = xclk;
     
-//    assign red_diff = (output_pixels[15:12]>old_output_pixels[15:12])?output_pixels[15:12]-old_output_pixels[15:12]:old_output_pixels[15:12]-output_pixels[15:12];
-//    assign green_diff = (output_pixels[10:7]>old_output_pixels[10:7])?output_pixels[10:7]-old_output_pixels[10:7]:old_output_pixels[10:7]-output_pixels[10:7];
-//    assign blue_diff = (output_pixels[4:1]>old_output_pixels[4:1])?output_pixels[4:1]-old_output_pixels[4:1]:old_output_pixels[4:1]-output_pixels[4:1];
 
     
     
-    /*blk_mem_gen_0 jojos_bram(.addra(pixel_addr_in), 
-                             .clka(pclk_in),
-                             .dina(processed_pixels),
-                             .wea(valid_pixel),
-                             .addrb(pixel_addr_out),
-                             .clkb(clk_65mhz),
-                             .doutb(frame_buff_out));*/
-                             
-                             //delete all
-                             //make 2 fifos, one for address and one for pixel
-                             //add in processed pixel and pixel addr
-                             //add in on wea = valid pixel
-                             //write out on 65mhz clock
-                             //write out framebuffout and pixel addr out
-                             //make fifos from ip catalog
                              
     assign frame_done = (hcount_fifo==319 && vcount_fifo==239) ? 1 : 0;
     
@@ -220,55 +190,17 @@ module top_level(
     logic [26:0] x_acc;
     
     centroid centroid1 (.x_acc(x_acc),.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .green(!empty_p ? green : 0), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
+ 
     
-    //assign pixel_addr_out = hcount+vcount*32'd320;
-    //assign pixel_addr_out = sw[2]?((hcount>>1)+(vcount>>1)*32'd320):hcount+vcount*32'd320;
-    //assign cam = sw[2]&&((hcount<640) &&  (vcount<480))?frame_buff_out:~sw[2]&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
     
-    //assign frame_buff_out = 
-    
-    //assign cam = 0&&((hcount<640) &&  (vcount<480))?frame_buff_out:1&&((hcount<320) &&  (vcount<240))?frame_buff_out:12'h000;
-    
-/*    always_ff @(posedge clk_65mhz) begin
-        
-    end*/
-    
-    logic [11:0] vga_frame_buff_out;
-    logic [16:0] vga_pixel_addr_out;
-    assign vga_pixel_addr_out = hcount+vcount*32'd320;
     
     logic delayed_empty;
     
-    always_ff @(posedge clk_65mhz) begin
-        delayed_empty <= empty;
-    end
     
-       logic [11:0] temp_rgb;
-       
-       blk_mem_gen_0 jojos_bram(.addra(pixel_addr_in), 
-                             .clka(clk_65mhz),
-                             .dina((hcount_fifo==centroid_x || vcount_fifo==centroid_y) ? 12'hF00 : green ? 12'h062 : cam),
-                             .wea(!delayed_empty),
-                             .addrb(vga_pixel_addr_out),
-                             .clkb(clk_65mhz),
-                             .doutb(temp_rgb));
-                             
-    assign rgb = (hcount<320 && vcount<240) ? temp_rgb : 0;
     
-    logic [7:0] display_v;
-    assign display_v = (hcount==160 && vcount==120) ? out_v : display_v;
     
     display_8hex display(.clk_in(clk_65mhz),.data_in(x_acc), .seg_out(segments), .strobe_out(an));
     
-    //hcount vcount and frame_buff_out bc theyre all synchronized here
-    //put throug rgb to hsv module
-    //use a shift register to delay 22 counts
-    
-//    ila_0 joes_ila(.clk(clk_65mhz),    .probe0(pixel_in), 
-//                                        .probe1(pclk_in), 
-//                                        .probe2(vsync_in),
-//                                        .probe3(href_in),
-//                                        .probe4(jbclk));
 
 
                                         
@@ -280,63 +212,11 @@ module top_level(
                           .pixel_valid_out(valid_pixel),
                           .frame_done_out(frame_done_out));
    
-    // UP and DOWN buttons for pong paddle
-    wire up,down;
-    debounce db2(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnu),.clean_out(up));
-    debounce db3(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
 
-    wire phsync,pvsync,pblank;
-    pong_game pg(.vclock_in(clk_65mhz),.reset_in(reset),
-                .up_in(up),.down_in(down),.pspeed_in(sw[15:12]),
-                .hcount_in(hcount),.vcount_in(vcount),
-                .hsync_in(hsync),.vsync_in(vsync),.blank_in(blank),
-                .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank),.pixel_out(pixel), .centroid_x(centroid_x), .centroid_y(centroid_y));
 
-    wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767 |
-                   hcount == 512 | vcount == 384);
-
-    reg b,hs,vs;
-    always_ff @(posedge clk_65mhz) begin
-         // default: pong
-         hs <= phsync;
-         vs <= pvsync;
-         b <= pblank;
-//         if (pixel > 0 && hcount<320 && vcount<240) begin
-//            rgb <= pixel;
-            
-         /*if (hcount <320 && vcount<240 && (vcount==centroid_y || hcount==centroid_x)) begin
-            rgb <= 12'hF00;
-         //end else if (green && hcount<320 && vcount<240) begin
-           // rgb <= 12'h062;
-         end else begin
-            rgb <= cam; 
-            //rgb <= 12'h000;
-         end*/
-    end
-
-//    assign rgb = sw[0] ? {12{border}} : pixel ; //{{4{hcount[7]}}, {4{hcount[6]}}, {4{hcount[5]}}};
-
-    // the following lines are required for the Nexys4 VGA circuit - do not change
-    assign vga_r = ~b ? rgb[11:8]: 0;
-    assign vga_g = ~b ? rgb[7:4] : 0;
-    assign vga_b = ~b ? rgb[3:0] : 0;
+   
+  
     
-
-    assign vga_hs = ~hs;
-    assign vga_vs = ~vs;
-    
-    logic [21:0] hsync_shift_reg;
-    logic [21:0] vsync_shift_reg;
-    logic [4:0] sync_dly;
-    assign sync_dly = 22;
-    
-    assign hs = hsync_shift_reg[sync_dly-1];
-    assign vs = vsync_shift_reg[sync_dly-1];
-
-    //assign hsync_out = hsync_shift_reg[sync_dly-1];
-    //for hs, vs, and b (blank_out)
-    //dwofk virtual passport
-    //assign v_sync = vsync_out;
 
 endmodule
 
@@ -346,44 +226,7 @@ endmodule
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-module pong_game (
-   input vclock_in,        // 65MHz clock
-   input reset_in,         // 1 to initialize module
-   input up_in,            // 1 when paddle should move up
-   input down_in,          // 1 when paddle should move down
-   input [3:0] pspeed_in,  // puck speed in pixels/tick 
-   input [10:0] hcount_in, // horizontal index of current pixel (0..1023)
-   input [9:0]  vcount_in, // vertical index of current pixel (0..767)
-   input hsync_in,         // XVGA horizontal sync signal (active low)
-   input vsync_in,         // XVGA vertical sync signal (active low)
-   input blank_in,         // XVGA blanking (1 means output black pixel)
-   input [10:0] centroid_x,
-   input [9:0] centroid_y,
-        
-   output phsync_out,       // pong game's horizontal sync
-   output pvsync_out,       // pong game's vertical sync
-   output pblank_out,       // pong game's blanking
-   output [11:0] pixel_out  // pong game's pixel  // r=23:16, g=15:8, b=7:0 
-   );
 
-   //wire [2:0] checkerboard;
-        
-   // REPLACE ME! The code below just generates a color checkerboard
-   // using 64 pixel by 64 pixel squares.
-   
-   assign phsync_out = hsync_in;
-   assign pvsync_out = vsync_in;
-   assign pblank_out = blank_in;
-   //assign checkerboard = hcount_in[8:6] + vcount_in[8:6];
-
-   // here we use three bits from hcount and vcount to generate the
-   // checkerboard
-
-   //assign pixel_out = {{4{checkerboard[2]}}, {4{checkerboard[1]}}, {4{checkerboard[0]}}} ;
-         blob #(.WIDTH(10),.HEIGHT(6),.COLOR(12'h0F0))   // green
-        square(.x_in(centroid_x),.y_in(centroid_y),.hcount_in(hcount_in),.vcount_in(vcount_in),
-             .pixel_out(pixel_out));
-endmodule
 
 module synchronize #(parameter NSYNC = 3)  // number of sync flops.  must be >= 2
                    (input clk,in,
@@ -513,77 +356,6 @@ module display_8hex(
 
 endmodule
 
-//////////////////////////////////////////////////////////////////////////////////
-// Update: 8/8/2019 GH 
-// Create Date: 10/02/2015 02:05:19 AM
-// Module Name: xvga
-//
-// xvga: Generate VGA display signals (1024 x 768 @ 60Hz)
-//
-//                              ---- HORIZONTAL -----     ------VERTICAL -----
-//                              Active                    Active
-//                    Freq      Video   FP  Sync   BP      Video   FP  Sync  BP
-//   640x480, 60Hz    25.175    640     16    96   48       480    11   2    31
-//   800x600, 60Hz    40.000    800     40   128   88       600     1   4    23
-//   1024x768, 60Hz   65.000    1024    24   136  160       768     3   6    29
-//   1280x1024, 60Hz  108.00    1280    48   112  248       768     1   3    38
-//   1280x720p 60Hz   75.25     1280    72    80  216       720     3   5    30
-//   1920x1080 60Hz   148.5     1920    88    44  148      1080     4   5    36
-//
-// change the clock frequency, front porches, sync's, and back porches to create 
-// other screen resolutions
-////////////////////////////////////////////////////////////////////////////////
 
-module xvga(input vclock_in,
-            output reg [10:0] hcount_out,    // pixel number on current line
-            output reg [9:0] vcount_out,     // line number
-            output reg vsync_out, hsync_out,
-            output reg blank_out);
-
-   parameter DISPLAY_WIDTH  = 1024;      // display width
-   parameter DISPLAY_HEIGHT = 768;       // number of lines
-
-   parameter  H_FP = 24;                 // horizontal front porch
-   parameter  H_SYNC_PULSE = 136;        // horizontal sync
-   parameter  H_BP = 160;                // horizontal back porch
-
-   parameter  V_FP = 3;                  // vertical front porch
-   parameter  V_SYNC_PULSE = 6;          // vertical sync 
-   parameter  V_BP = 29;                 // vertical back porch
-
-   // horizontal: 1344 pixels total
-   // display 1024 pixels per line
-   reg hblank,vblank;
-   wire hsyncon,hsyncoff,hreset,hblankon;
-   assign hblankon = (hcount_out == (DISPLAY_WIDTH -1));    
-   assign hsyncon = (hcount_out == (DISPLAY_WIDTH + H_FP - 1));  //1047
-   assign hsyncoff = (hcount_out == (DISPLAY_WIDTH + H_FP + H_SYNC_PULSE - 1));  // 1183
-   assign hreset = (hcount_out == (DISPLAY_WIDTH + H_FP + H_SYNC_PULSE + H_BP - 1));  //1343
-
-   // vertical: 806 lines total
-   // display 768 lines
-   wire vsyncon,vsyncoff,vreset,vblankon;
-   assign vblankon = hreset & (vcount_out == (DISPLAY_HEIGHT - 1));   // 767 
-   assign vsyncon = hreset & (vcount_out == (DISPLAY_HEIGHT + V_FP - 1));  // 771
-   assign vsyncoff = hreset & (vcount_out == (DISPLAY_HEIGHT + V_FP + V_SYNC_PULSE - 1));  // 777
-   assign vreset = hreset & (vcount_out == (DISPLAY_HEIGHT + V_FP + V_SYNC_PULSE + V_BP - 1)); // 805
-
-   // sync and blanking
-   wire next_hblank,next_vblank;
-   assign next_hblank = hreset ? 0 : hblankon ? 1 : hblank;
-   assign next_vblank = vreset ? 0 : vblankon ? 1 : vblank;
-   always_ff @(posedge vclock_in) begin
-      hcount_out <= hreset ? 0 : hcount_out + 1;
-      hblank <= next_hblank;
-      hsync_out <= hsyncon ? 0 : hsyncoff ? 1 : hsync_out;  // active low
-
-      vcount_out <= hreset ? (vreset ? 0 : vcount_out + 1) : vcount_out;
-      vblank <= next_vblank;
-      vsync_out <= vsyncon ? 0 : vsyncoff ? 1 : vsync_out;  // active low
-
-      blank_out <= next_vblank | (next_hblank & ~hreset);
-   end
-   
-endmodule
 
 
