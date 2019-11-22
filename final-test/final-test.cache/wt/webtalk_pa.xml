@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Thu Nov 21 23:08:06 2019">
+<application name="pa" timeStamp="Thu Nov 21 23:23:02 2019">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="f209e258e8c2470683ddacd69257791b" type="ProjectID"/>
 <property name="ProjectIteration" value="109" type="ProjectIteration"/>
@@ -57,7 +57,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="246" type="GuiHandlerData"/>
 <property name="GettingStartedView_CREATE_NEW_PROJECT" value="1" type="GuiHandlerData"/>
 <property name="HCodeEditor_BLANK_OPERATIONS" value="2" type="GuiHandlerData"/>
-<property name="HCodeEditor_CLOSE" value="23" type="GuiHandlerData"/>
+<property name="HCodeEditor_CLOSE" value="24" type="GuiHandlerData"/>
 <property name="HCodeEditor_SEARCH_TEXT_COMBO_BOX" value="72" type="GuiHandlerData"/>
 <property name="HInputHandler_TOGGLE_BLOCK_COMMENTS" value="21" type="GuiHandlerData"/>
 <property name="HInputHandler_TOGGLE_LINE_COMMENTS" value="9" type="GuiHandlerData"/>
@@ -104,6 +104,11 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="StateMonitor_RESET_RUN" value="1" type="GuiHandlerData"/>
 <property name="SyntheticaGettingStartedView_RECENT_PROJECTS" value="10" type="GuiHandlerData"/>
 <property name="SyntheticaStateMonitor_CANCEL" value="4" type="GuiHandlerData"/>
+</item>
+<item name="Other">
+<property name="GuiMode" value="27" type="GuiMode"/>
+<property name="BatchMode" value="0" type="BatchMode"/>
+<property name="TclMode" value="16" type="TclMode"/>
 </item>
 </section>
 </application>
