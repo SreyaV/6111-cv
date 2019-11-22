@@ -11,18 +11,18 @@
 
 module top_level(
    input clk_100mhz,
-   input[15:0] sw,
-   input btnc, btnu, btnl, btnr, btnd,
+//   input[15:0] sw,
+   input btnc,
    input [7:0] ja,
    input [2:0] jb,
    output   jbclk,
    input [2:0] jd,
-   output   jdclk,
-   output led16_b, led16_g, led16_r,
-   output led17_b, led17_g, led17_r,
-   output[15:0] led,
-   output ca, cb, cc, cd, ce, cf, cg, dp,  // segments a-g, dp
-   output[7:0] an    // Display location 0-7
+   output   jdclk
+//   output led16_b, led16_g, led16_r,
+//   output led17_b, led17_g, led17_r,
+//   output[15:0] led,
+//   output ca, cb, cc, cd, ce, cf, cg, dp,  // segments a-g, dp
+//   output[7:0] an    // Display location 0-7
    );
     logic clk_65mhz;
     // create 65mhz system clock, happens to match 1024 x 768 XVGA timing
@@ -30,20 +30,20 @@ module top_level(
     clk_wiz_lab3 clkdivider(.clk_in1(clk_100mhz), .clk_out1(clk_65mhz));
 
     wire [31:0] data;      //  instantiate 7-segment display; display (8) 4-bit hex
-    wire [6:0] segments;
-    assign {cg, cf, ce, cd, cc, cb, ca} = segments[6:0];
+    //wire [6:0] segments;
+   // assign {cg, cf, ce, cd, cc, cb, ca} = segments[6:0];
     //display_8hex display(.clk_in(clk_65mhz),.data_in(data), .seg_out(segments), .strobe_out(an));
     //assign seg[6:0] = segments;
-    assign  dp = 1'b1;  // turn off the period
+   // assign  dp = 1'b1;  // turn off the period
 
-    assign led = sw;                        // turn leds on
-    assign data = {28'h0123456, sw[3:0]};   // display 0123456 + sw[3:0]
-    assign led16_r = btnl;                  // left button -> red led
-    assign led16_g = btnc;                  // center button -> green led
-    assign led16_b = btnr;                  // right button -> blue led
-    assign led17_r = btnl;
-    assign led17_g = btnc;
-    assign led17_b = btnr;
+//    assign led = sw;                        // turn leds on
+//    assign data = {28'h0123456, sw[3:0]};   // display 0123456 + sw[3:0]
+//    assign led16_r = btnl;                  // left button -> red led
+//    assign led16_g = btnc;                  // center button -> green led
+//    assign led16_b = btnr;                  // right button -> blue led
+//    assign led17_r = btnl;
+//    assign led17_g = btnc;
+//    assign led17_b = btnr;
 
     wire [10:0] hcount;    // pixel on current line
     wire [9:0] vcount;     // line number
@@ -51,7 +51,7 @@ module top_level(
     wire [11:0] pixel;
     reg [11:0] rgb;    
 
-
+    
 
     // btnc button is user reset
     wire reset;
@@ -83,7 +83,7 @@ module top_level(
     logic frame_done;
     
     logic [15:0] averaging;
-    assign averaging = sw;
+    assign averaging = 16'b0;
     
     logic [6:0] h_upper;
     logic [6:0] h_lower;
@@ -100,9 +100,6 @@ module top_level(
     assign xclk = (xclk_count >2'b01);
     assign jbclk = xclk;
     assign jdclk = xclk;
-    
-
-    
     
                              
     assign frame_done = (hcount_fifo==319 && vcount_fifo==239) ? 1 : 0;
@@ -123,12 +120,11 @@ module top_level(
         end
     end
 
-    
-                             
+                          
     logic full;
     logic empty;
     logic [32:0] fifo_temp;
-  
+ 
                                  
      fifo_33 fifo(
      .wr_clk(pclk_in),  // input wire wr_clk
@@ -191,15 +187,8 @@ module top_level(
     
     centroid centroid1 (.x_acc(x_acc),.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .green(!empty_p ? green : 0), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
  
-    
-    
-    
-    logic delayed_empty;
-    
-    
-    
-    
-    display_8hex display(.clk_in(clk_65mhz),.data_in(x_acc), .seg_out(segments), .strobe_out(an));
+
+//    display_8hex display(.clk_in(clk_65mhz),.data_in(x_acc), .seg_out(segments), .strobe_out(an));
     
 
 
