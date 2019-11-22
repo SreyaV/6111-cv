@@ -1,7 +1,7 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Thu Nov 21 23:03:34 2019
+| Date             : Thu Nov 21 23:17:28 2019
 | Host             : DESKTOP-7EQCPG5 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_level_power_routed.rpt -pb top_level_power_summary_routed.pb -rpx top_level_power_routed.rpx
 | Design           : top_level
@@ -30,10 +30,10 @@ Table of Contents
 ----------
 
 +--------------------------+--------------+
-| Total On-Chip Power (W)  | 0.224        |
+| Total On-Chip Power (W)  | 0.222        |
 | Design Power Budget (W)  | Unspecified* |
 | Power Budget Margin (W)  | NA           |
-| Dynamic (W)              | 0.126        |
+| Dynamic (W)              | 0.124        |
 | Device Static (W)        | 0.097        |
 | Effective TJA (C/W)      | 4.6          |
 | Max Ambient (C)          | 84.0         |
@@ -59,9 +59,9 @@ Table of Contents
 |   Others       |     0.000 |        4 |       --- |             --- |
 | Signals        |    <0.001 |        2 |       --- |             --- |
 | MMCM           |     0.122 |        1 |         6 |           16.67 |
-| I/O            |     0.004 |        3 |       210 |            1.43 |
+| I/O            |     0.002 |        2 |       210 |            0.95 |
 | Static Power   |     0.097 |          |           |                 |
-| Total          |     0.224 |          |           |                 |
+| Total          |     0.222 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -142,7 +142,7 @@ Table of Contents
 +--------------+-----------+
 | Name         | Power (W) |
 +--------------+-----------+
-| top_level    |     0.126 |
+| top_level    |     0.124 |
 |   clkdivider |     0.122 |
 +--------------+-----------+
 

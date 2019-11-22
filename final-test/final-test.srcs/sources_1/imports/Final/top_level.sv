@@ -15,9 +15,9 @@ module top_level(
    input btnc,
    input [7:0] ja,
    input [2:0] jb,
-   output   jbclk,
-   input [2:0] jd,
-   output   jdclk
+   output   jbclk
+//   input [2:0] jd,
+  // output   jdclk
 //   output led16_b, led16_g, led16_r,
 //   output led17_b, led17_g, led17_r,
 //   output[15:0] led,
@@ -99,7 +99,7 @@ module top_level(
     
     assign xclk = (xclk_count >2'b01);
     assign jbclk = xclk;
-    assign jdclk = xclk;
+    //assign jdclk = xclk;
     
                              
     assign frame_done = (hcount_fifo==319 && vcount_fifo==239) ? 1 : 0;
