@@ -1,0 +1,13 @@
+
+*** Running vivado
+    with args -log fifo_33.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fifo_33.tcl
+
+
+****** Vivado v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source fifo_33.tcl -notrace
+INFO: [IP_Flow 19-4838] Using cached IP synthesis design for IP fifo_33, cache-ID = dcc3b5baf86dfd11.
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 21 11:23:51 2019...

@@ -107,7 +107,7 @@ module top_level(
     logic [10:0] hcount_fifo;
     logic [9:0] vcount_fifo;
     
-    assign frame_done = (hcount_fifo==320 && vcount_fifo==240) ? 1 : 0;
+    
     
     assign xclk = (xclk_count >2'b01);
     assign jbclk = xclk;
@@ -134,7 +134,9 @@ module top_level(
                              //write out on 65mhz clock
                              //write out framebuffout and pixel addr out
                              //make fifos from ip catalog
-
+                             
+    assign frame_done = (hcount_fifo==319 && vcount_fifo==239) ? 1 : 0;
+    
     always_ff @(posedge pclk_in)begin
         if (frame_done_out)begin
             vcount_camera <= 0;
@@ -153,70 +155,29 @@ module top_level(
 
     
                              
-    logic full_pixel;
-    logic empty_pixel;  
-    logic full_x;
-    logic empty_x;
-    logic empty_y;
-    logic full_y;
-    
+    logic full;
+    logic empty;
+    logic [32:0] fifo_temp;
   
                                  
-     fifo_12 fifo_pixels(
+     fifo_33 fifo(
      .wr_clk(pclk_in),  // input wire wr_clk
   .rd_clk(clk_65mhz),  // input wire rd_clk
   //.clk(clk_65mhz),      // input wire clk
   .rst(0),    // input wire srst
-  .din(processed_pixels),      // input wire [11 : 0] din
+  .din({processed_pixels, hcount_camera, vcount_camera}),      // input wire [32 : 0] din
   .wr_en(valid_pixel),  // input wire wr_en
-  .rd_en(!empty_pixel),  // input wire rd_en
-  .dout(frame_buff_out),    // output wire [11 : 0] dout
-  .full(full_pixel),    // output wire full
-  .empty(empty_pixel)  // output wire empty
+  .rd_en(!empty),  // input wire rd_en
+  .dout(fifo_temp),    // output wire [32 : 0] dout
+  .full(full),    // output wire full
+  .empty(empty)  // output wire empty
 ); 
 
-     fifo_11 fifo_hcount(
-     //.clk(clk_65mhz),      // input wire clk
-   .wr_clk(pclk_in),  // input wire wr_clk
-  .rd_clk(clk_65mhz),  // input wire rd_clk
-  .rst(0),    // input wire srst
-  .din(hcount_camera),      // input wire [11 : 0] din
-  .wr_en(valid_pixel),  // input wire wr_en
-  .rd_en(!empty_x),  // input wire rd_en
-  .dout(hcount_fifo ),    // output wire [11 : 0] dout
-  .full(full_x),    // output wire full
-  .empty(empty_x)  // output wire empty
-); 
-
-     fifo_10 fifo_vcount(
-  //   .clk(clk_65mhz),      // input wire clk
-  .wr_clk(pclk_in),  // input wire wr_clk
-  .rd_clk(clk_65mhz),  // input wire rd_clk
-  .rst(0),    // input wire srst
-  .din(vcount_camera),      // input wire [11 : 0] din
-  .wr_en(valid_pixel),  // input wire wr_en
-  .rd_en(!empty_y),  // input wire rd_en
-  .dout(vcount_fifo ),    // output wire [11 : 0] dout
-  .full(full_y),    // output wire full
-  .empty(empty_y)  // output wire empty
-); 
+    assign frame_buff_out = fifo_temp[32:21];
+    assign hcount_fifo = fifo_temp[20:10];
+    assign vcount_fifo = fifo_temp[9:0];
 
     assign pixel_addr_in = hcount_fifo+vcount_fifo*32'd320;
-
-/*     fifo_17 fifo_addr(.clk(clk_65mhz),      // input wire clk
-  .srst(0),    // input wire srst
-  .din(pixel_addr_in),      // input wire [16 : 0] din
-  .wr_en(valid_pixel),  // input wire wr_en
-  .rd_en(clk_65mhz && !empty_addr),  // input wire rd_en
-  .dout(pixel_addr_out),    // output wire [16 : 0] dout
-  .full(full_addr),    // output wire full
-  .empty(empty_addr)  // output wire empty
-);*/
-
-
-                             
-    
-
     
     always_ff @(posedge clk_65mhz) begin
         pclk_buff <= jb[0];//WAS JB
@@ -239,17 +200,26 @@ module top_level(
 //    assign h_upper = sw[15:9]; //96
 //    assign h_lower = sw[6:0]; //48
     assign v_upper = 255;
-    assign v_lower = 207;
+    assign v_lower = 240;
 //    assign v_upper = sw[15:8];
 //    assign v_lower = sw[7:0];
+
+    logic empty_p;
+    
+     pipeline #(.N_BITS(1), .N_REGISTERS(22)) pipeline_x(
+        .clk_in(clk_65mhz), 
+        .rst_in(reset),
+        .data_in(empty),
+        .data_out(empty_p));
 
     assign cam = frame_buff_out;
     
     rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .green(green), .h_upper(h_upper), .h_lower(h_lower), .v_upper(v_upper), .v_lower(v_lower), .out_v(out_v));
     
     logic [16:0] count;
+    logic [26:0] x_acc;
     
-    centroid centroid1 (.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .green(green), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
+    centroid centroid1 (.x_acc(x_acc),.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .green(!empty_p ? green : 0), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
     
     //assign pixel_addr_out = hcount+vcount*32'd320;
     //assign pixel_addr_out = sw[2]?((hcount>>1)+(vcount>>1)*32'd320):hcount+vcount*32'd320;
@@ -267,18 +237,18 @@ module top_level(
     logic [16:0] vga_pixel_addr_out;
     assign vga_pixel_addr_out = hcount+vcount*32'd320;
     
-    logic delayed_empty_pixel;
+    logic delayed_empty;
     
     always_ff @(posedge clk_65mhz) begin
-        delayed_empty_pixel <= empty_pixel;
+        delayed_empty <= empty;
     end
     
        logic [11:0] temp_rgb;
        
        blk_mem_gen_0 jojos_bram(.addra(pixel_addr_in), 
                              .clka(clk_65mhz),
-                             .dina(green ? 12'h062 : cam),
-                             .wea(!delayed_empty_pixel),
+                             .dina((hcount_fifo==centroid_x || vcount_fifo==centroid_y) ? 12'hF00 : green ? 12'h062 : cam),
+                             .wea(!delayed_empty),
                              .addrb(vga_pixel_addr_out),
                              .clkb(clk_65mhz),
                              .doutb(temp_rgb));
@@ -288,7 +258,7 @@ module top_level(
     logic [7:0] display_v;
     assign display_v = (hcount==160 && vcount==120) ? out_v : display_v;
     
-    display_8hex display(.clk_in(clk_65mhz),.data_in(count), .seg_out(segments), .strobe_out(an));
+    display_8hex display(.clk_in(clk_65mhz),.data_in(x_acc), .seg_out(segments), .strobe_out(an));
     
     //hcount vcount and frame_buff_out bc theyre all synchronized here
     //put throug rgb to hsv module

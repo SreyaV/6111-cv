@@ -37,6 +37,7 @@ read_verilog -library xil_defaultlib -sv {
   {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv}
   {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv}
   {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv}
+  {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv}
   {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv}
   {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv}
 }
@@ -47,20 +48,10 @@ set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vanga
 read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div.xci}}
 set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div_ooc.xdc}}]
 
-read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12.xci}}
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12_ooc.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12_clocks.xdc}}]
-
-read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11.xci}}
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11_ooc.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11_clocks.xdc}}]
-
-read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10.xci}}
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10_ooc.xdc}}]
-set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10_clocks.xdc}}]
+read_ip -quiet {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33.xci}}
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33_clocks.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33_ooc.xdc}}]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

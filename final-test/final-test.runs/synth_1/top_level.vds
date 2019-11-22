@@ -2,8 +2,8 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Thu Nov 21 00:23:31 2019
-# Process ID: 12716
+# Start of session at: Thu Nov 21 19:30:02 2019
+# Process ID: 8456
 # Current directory: C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1
 # Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
 # Log file: C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/top_level.vds
@@ -16,9 +16,11 @@ Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Device 21-403] Loading part xc7a100tcsg324-1
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11788 
+INFO: Helper process launched with PID 15760 
+WARNING: [Synth 8-6901] identifier 'N_BITS' is used before its declaration [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv:6]
+WARNING: [Synth 8-6901] identifier 'N_BITS' is used before its declaration [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv:7]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 730.195 ; gain = 178.094
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 733.070 ; gain = 181.949
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'top_level' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
 INFO: [Synth 8-6157] synthesizing module 'clk_wiz_lab3' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v:67]
@@ -82,7 +84,7 @@ INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (2#1) [C:/Xilinx/Viva
 INFO: [Synth 8-6157] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
 INFO: [Synth 8-6155] done synthesizing module 'BUFG' (3#1) [C:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
 INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_lab3' (4#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v:67]
-INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:567]
+INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:537]
 	Parameter DISPLAY_WIDTH bound to: 1024 - type: integer 
 	Parameter DISPLAY_HEIGHT bound to: 768 - type: integer 
 	Parameter H_FP bound to: 24 - type: integer 
@@ -91,49 +93,50 @@ INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Sreya Vangara/Document
 	Parameter V_FP bound to: 3 - type: integer 
 	Parameter V_SYNC_PULSE bound to: 6 - type: integer 
 	Parameter V_BP bound to: 29 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'xvga' (5#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:567]
-INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:436]
-INFO: [Synth 8-6155] done synthesizing module 'debounce' (6#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:436]
-INFO: [Synth 8-6157] synthesizing module 'fifo_12' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/fifo_12_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fifo_12' (7#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/fifo_12_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'fifo_11' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/fifo_11_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fifo_11' (8#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/fifo_11_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'fifo_10' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/fifo_10_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fifo_10' (9#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/fifo_10_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'xvga' (5#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:537]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:406]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (6#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:406]
+INFO: [Synth 8-6157] synthesizing module 'fifo_33' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-8456-DESKTOP-7EQCPG5/realtime/fifo_33_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_33' (7#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-8456-DESKTOP-7EQCPG5/realtime/fifo_33_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'pipeline' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv:3]
+	Parameter N_BITS bound to: 1 - type: integer 
+	Parameter N_REGISTERS bound to: 22 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'pipeline' (8#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv:3]
 INFO: [Synth 8-6157] synthesizing module 'rgb2hsv' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
 INFO: [Synth 8-6157] synthesizing module 'divider' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv:13]
 	Parameter WIDTH bound to: 16 - type: integer 
 WARNING: [Synth 8-6014] Unused sequential element diff_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv:54]
-INFO: [Synth 8-6155] done synthesizing module 'divider' (10#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv:13]
+INFO: [Synth 8-6155] done synthesizing module 'divider' (9#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/divider.sv:13]
 WARNING: [Synth 8-6014] Unused sequential element s_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:159]
-INFO: [Synth 8-6155] done synthesizing module 'rgb2hsv' (11#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
+INFO: [Synth 8-6155] done synthesizing module 'rgb2hsv' (10#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
 INFO: [Synth 8-6157] synthesizing module 'centroid' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
-INFO: [Synth 8-6157] synthesizing module 'centroid_div' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/centroid_div_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'centroid_div' (12#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/centroid_div_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'centroid_div' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-8456-DESKTOP-7EQCPG5/realtime/centroid_div_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'centroid_div' (11#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-8456-DESKTOP-7EQCPG5/realtime/centroid_div_stub.v:6]
 WARNING: [Synth 8-6014] Unused sequential element ready_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:51]
-INFO: [Synth 8-6155] done synthesizing module 'centroid' (13#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (14#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-12716-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
-WARNING: [Synth 8-689] width (12) of port connection 'doutb' does not match port width (16) of module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:284]
-INFO: [Synth 8-6157] synthesizing module 'display_8hex' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:469]
+INFO: [Synth 8-6155] done synthesizing module 'centroid' (12#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
+WARNING: [Synth 8-689] width (32) of port connection 'green' does not match port width (1) of module 'centroid' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:222]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-8456-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (13#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/.Xil/Vivado-8456-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
+WARNING: [Synth 8-689] width (12) of port connection 'doutb' does not match port width (16) of module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:254]
+INFO: [Synth 8-6157] synthesizing module 'display_8hex' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:439]
 	Parameter bits bound to: 13 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'display_8hex' (15#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:469]
+INFO: [Synth 8-6155] done synthesizing module 'display_8hex' (14#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:439]
 INFO: [Synth 8-6157] synthesizing module 'camera_read' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
 	Parameter WAIT_FRAME_START bound to: 0 - type: integer 
 	Parameter ROW_CAPTURE bound to: 1 - type: integer 
 INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:21]
-INFO: [Synth 8-6155] done synthesizing module 'camera_read' (16#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'pong_game' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:379]
+INFO: [Synth 8-6155] done synthesizing module 'camera_read' (15#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'pong_game' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:349]
 INFO: [Synth 8-6157] synthesizing module 'blob' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/blob.sv:22]
 	Parameter WIDTH bound to: 10 - type: integer 
 	Parameter HEIGHT bound to: 6 - type: integer 
 	Parameter COLOR bound to: 12'b000011110000 
-INFO: [Synth 8-6155] done synthesizing module 'blob' (17#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/blob.sv:22]
-INFO: [Synth 8-6155] done synthesizing module 'pong_game' (18#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:379]
-WARNING: [Synth 8-6014] Unused sequential element old_output_pixels_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:230]
-WARNING: [Synth 8-3848] Net hsync_shift_reg in module/entity top_level does not have driver. [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:358]
-WARNING: [Synth 8-3848] Net vsync_shift_reg in module/entity top_level does not have driver. [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:359]
-INFO: [Synth 8-6155] done synthesizing module 'top_level' (19#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
+INFO: [Synth 8-6155] done synthesizing module 'blob' (16#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/blob.sv:22]
+INFO: [Synth 8-6155] done synthesizing module 'pong_game' (17#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:349]
+WARNING: [Synth 8-6014] Unused sequential element old_output_pixels_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:191]
+WARNING: [Synth 8-3848] Net hsync_shift_reg in module/entity top_level does not have driver. [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:328]
+WARNING: [Synth 8-3848] Net vsync_shift_reg in module/entity top_level does not have driver. [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:329]
+INFO: [Synth 8-6155] done synthesizing module 'top_level' (18#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
 WARNING: [Synth 8-3917] design top_level has port dp driven by constant 1
 WARNING: [Synth 8-3331] design pong_game has unconnected port vclock_in
 WARNING: [Synth 8-3331] design pong_game has unconnected port reset_in
@@ -164,7 +167,7 @@ WARNING: [Synth 8-3331] design top_level has unconnected port jd[2]
 WARNING: [Synth 8-3331] design top_level has unconnected port jd[1]
 WARNING: [Synth 8-3331] design top_level has unconnected port jd[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 797.020 ; gain = 244.918
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:14 . Memory (MB): peak = 779.504 ; gain = 228.383
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -177,10 +180,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 797.020 ; gain = 244.918
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 793.766 ; gain = 242.645
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 797.020 ; gain = 244.918
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 793.766 ; gain = 242.645
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -194,12 +197,8 @@ Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-t
 Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid1/xcenter'
 Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid1/ycenter'
 Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid1/ycenter'
-Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12/fifo_12_in_context.xdc] for cell 'fifo_pixels'
-Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_12/fifo_12/fifo_12_in_context.xdc] for cell 'fifo_pixels'
-Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11/fifo_11_in_context.xdc] for cell 'fifo_hcount'
-Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_11/fifo_11/fifo_11_in_context.xdc] for cell 'fifo_hcount'
-Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10/fifo_10_in_context.xdc] for cell 'fifo_vcount'
-Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_10/fifo_10/fifo_10_in_context.xdc] for cell 'fifo_vcount'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33/fifo_generator_0_in_context.xdc] for cell 'fifo'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33/fifo_generator_0_in_context.xdc] for cell 'fifo'
 Parsing XDC File [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]
 Finished Parsing XDC File [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_level_propImpl.xdc].
@@ -207,26 +206,24 @@ Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_pr
 INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 928.520 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 933.609 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 928.520 ; gain = 0.000
-WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'fifo_hcount' at clock pin 'rd_clk' is different from the actual clock period '15.385', this can lead to different synthesis results.
-WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'fifo_pixels' at clock pin 'rd_clk' is different from the actual clock period '15.385', this can lead to different synthesis results.
-WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'fifo_vcount' at clock pin 'rd_clk' is different from the actual clock period '15.385', this can lead to different synthesis results.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 933.609 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'fifo' at clock pin 'rd_clk' is different from the actual clock period '15.385', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'jojos_bram' at clock pin 'clka' is different from the actual clock period '15.385', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'centroid1/xcenter' at clock pin 'aclk' is different from the actual clock period '15.385', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'centroid1/ycenter' at clock pin 'aclk' is different from the actual clock period '15.385', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 928.520 ; gain = 376.418
+Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 933.609 ; gain = 382.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 928.520 ; gain = 376.418
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 933.609 ; gain = 382.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -234,11 +231,9 @@ Start Applying 'set_property' XDC Constraints
 Applied set_property DONT_TOUCH = true for jojos_bram. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for centroid1/xcenter. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for centroid1/ycenter. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for fifo_pixels. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for fifo_hcount. (constraint file  auto generated constraint, line ).
-Applied set_property DONT_TOUCH = true for fifo_vcount. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for fifo. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 928.520 ; gain = 376.418
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:28 . Memory (MB): peak = 933.609 ; gain = 382.488
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:130]
 INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:130]
@@ -260,7 +255,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'FSM_state_reg' in module 'c
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'FSM_state_reg' using encoding 'sequential' in module 'camera_read'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:24 . Memory (MB): peak = 928.520 ; gain = 376.418
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:29 . Memory (MB): peak = 933.609 ; gain = 382.488
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -277,13 +272,14 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit       Adders := 5     
 	   3 Input     13 Bit       Adders := 1     
 	   3 Input     12 Bit       Adders := 1     
-	   2 Input     11 Bit       Adders := 3     
+	   2 Input     11 Bit       Adders := 2     
 	   2 Input     10 Bit       Adders := 2     
 	   3 Input      8 Bit       Adders := 3     
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      2 Bit       Adders := 1     
 +---Registers : 
 	               32 Bit    Registers := 4     
+	               22 Bit    Registers := 1     
 	               19 Bit    Registers := 1     
 	               16 Bit    Registers := 8     
 	               12 Bit    Registers := 1     
@@ -301,6 +297,7 @@ Detailed RTL Component Info :
 	   2 Input     16 Bit        Muxes := 13    
 	   3 Input     16 Bit        Muxes := 1     
 	   2 Input     12 Bit        Muxes := 2     
+	   3 Input     11 Bit        Muxes := 1     
 	   2 Input     11 Bit        Muxes := 1     
 	   3 Input     10 Bit        Muxes := 1     
 	   2 Input      8 Bit        Muxes := 11    
@@ -349,6 +346,10 @@ Detailed RTL Component Info :
 	                1 Bit    Registers := 2     
 +---Muxes : 
 	   2 Input      1 Bit        Muxes := 4     
+Module pipeline 
+Detailed RTL Component Info : 
++---Registers : 
+	               22 Bit    Registers := 1     
 Module divider 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -382,13 +383,12 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 6     
 Module centroid 
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     11 Bit       Adders := 1     
 +---Registers : 
 	               11 Bit    Registers := 1     
 	               10 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
+	   3 Input     11 Bit        Muxes := 1     
 	   3 Input     10 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 1     
 Module display_8hex 
@@ -599,6 +599,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[5] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[6] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/hue_div2/quotient_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\centroid1/centroid_x_reg[10] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\centroid1/centroid_y_reg[9] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
@@ -623,7 +624,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\rgb2hsv1/my_b_reg[3] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 928.520 ; gain = 376.418
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:36 . Memory (MB): peak = 933.609 ; gain = 382.488
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -652,13 +653,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:00:54 . Memory (MB): peak = 933.336 ; gain = 381.234
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:49 ; elapsed = 00:01:00 . Memory (MB): peak = 934.000 ; gain = 382.879
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:55 . Memory (MB): peak = 954.918 ; gain = 402.816
+Finished Timing Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:01:00 . Memory (MB): peak = 955.219 ; gain = 404.098
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -670,7 +671,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:48 ; elapsed = 00:00:56 . Memory (MB): peak = 956.699 ; gain = 404.598
+Finished Technology Mapping : Time (s): cpu = 00:00:50 ; elapsed = 00:01:01 . Memory (MB): peak = 957.098 ; gain = 405.977
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -694,7 +695,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:52 ; elapsed = 00:01:01 . Memory (MB): peak = 965.219 ; gain = 413.117
+Finished IO Insertion : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 965.320 ; gain = 414.199
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -707,7 +708,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:52 ; elapsed = 00:01:01 . Memory (MB): peak = 965.219 ; gain = 413.117
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 965.320 ; gain = 414.199
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -719,25 +720,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:52 ; elapsed = 00:01:01 . Memory (MB): peak = 965.219 ; gain = 413.117
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 965.320 ; gain = 414.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:52 ; elapsed = 00:01:01 . Memory (MB): peak = 965.219 ; gain = 413.117
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 965.320 ; gain = 414.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:53 ; elapsed = 00:01:01 . Memory (MB): peak = 965.219 ; gain = 413.117
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 965.320 ; gain = 414.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:53 ; elapsed = 00:01:01 . Memory (MB): peak = 965.219 ; gain = 413.117
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 965.320 ; gain = 414.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -763,11 +764,9 @@ Report BlackBoxes:
 +------+--------------+----------+
 |      |BlackBox name |Instances |
 +------+--------------+----------+
-|1     |fifo_12       |         1|
-|2     |fifo_11       |         1|
-|3     |fifo_10       |         1|
-|4     |blk_mem_gen_0 |         1|
-|5     |centroid_div  |         2|
+|1     |fifo_33       |         1|
+|2     |blk_mem_gen_0 |         1|
+|3     |centroid_div  |         2|
 +------+--------------+----------+
 
 Report Cell Usage: 
@@ -777,62 +776,61 @@ Report Cell Usage:
 |1     |blk_mem_gen_0   |     1|
 |2     |centroid_div    |     1|
 |3     |centroid_div__2 |     1|
-|4     |fifo_10         |     1|
-|5     |fifo_11         |     1|
-|6     |fifo_12         |     1|
-|7     |BUFG            |     3|
-|8     |CARRY4          |    43|
-|9     |DSP48E1         |     1|
-|10    |DSP48E1_1       |     1|
-|11    |LUT1            |    20|
-|12    |LUT2            |    59|
-|13    |LUT3            |    32|
-|14    |LUT4            |    87|
-|15    |LUT5            |    22|
-|16    |LUT6            |    59|
-|17    |MMCME2_ADV      |     1|
-|18    |SRLC32E         |     7|
-|19    |FDRE            |   302|
-|20    |FDSE            |     6|
-|21    |IBUF            |    31|
-|22    |OBUF            |    54|
+|4     |fifo_33         |     1|
+|5     |BUFG            |     3|
+|6     |CARRY4          |    42|
+|7     |DSP48E1         |     1|
+|8     |DSP48E1_1       |     1|
+|9     |LUT1            |    17|
+|10    |LUT2            |    55|
+|11    |LUT3            |    30|
+|12    |LUT4            |    92|
+|13    |LUT5            |    19|
+|14    |LUT6            |    68|
+|15    |MMCME2_ADV      |     1|
+|16    |SRLC32E         |     7|
+|17    |FDRE            |   321|
+|18    |FDSE            |     8|
+|19    |IBUF            |    31|
+|20    |OBUF            |    54|
 +------+----------------+------+
 
 Report Instance Areas: 
 +------+-------------+-------------+------+
 |      |Instance     |Module       |Cells |
 +------+-------------+-------------+------+
-|1     |top          |             |   897|
-|2     |  centroid1  |centroid     |   318|
+|1     |top          |             |   915|
+|2     |  centroid1  |centroid     |   327|
 |3     |  clkdivider |clk_wiz_lab3 |     4|
 |4     |  db1        |debounce     |    36|
-|5     |  display    |display_8hex |    43|
+|5     |  display    |display_8hex |    40|
 |6     |  my_camera  |camera_read  |    23|
-|7     |  rgb2hsv1   |rgb2hsv      |   152|
-|8     |  xvga1      |xvga         |    83|
+|7     |  pipeline_x |pipeline     |    23|
+|8     |  rgb2hsv1   |rgb2hsv      |   146|
+|9     |  xvga1      |xvga         |    84|
 +------+-------------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:53 ; elapsed = 00:01:01 . Memory (MB): peak = 965.219 ; gain = 413.117
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 965.320 ; gain = 414.199
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 29 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:40 ; elapsed = 00:00:56 . Memory (MB): peak = 965.219 ; gain = 281.617
-Synthesis Optimization Complete : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 965.219 ; gain = 413.117
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:39 ; elapsed = 00:01:00 . Memory (MB): peak = 965.320 ; gain = 274.355
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:01:06 . Memory (MB): peak = 965.320 ; gain = 414.199
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 46 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 45 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 965.219 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 983.371 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-223 Infos, 71 Warnings, 0 Critical Warnings and 0 Errors encountered.
+222 Infos, 72 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:00 ; elapsed = 00:01:13 . Memory (MB): peak = 965.219 ; gain = 664.172
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 965.219 ; gain = 0.000
+synth_design: Time (s): cpu = 00:01:03 ; elapsed = 00:01:21 . Memory (MB): peak = 983.371 ; gain = 693.105
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 983.371 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint 'C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/top_level.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Thu Nov 21 00:25:01 2019...
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 21 19:31:49 2019...
