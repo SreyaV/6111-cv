@@ -258,7 +258,7 @@ module top_level(
     logic [7:0] display_v;
     assign display_v = (hcount==160 && vcount==120) ? out_v : display_v;
     
-    display_8hex display(.clk_in(clk_65mhz),.data_in(x_acc), .seg_out(segments), .strobe_out(an));
+    display_8hex display(.clk_in(clk_65mhz),.data_in(count), .seg_out(segments), .strobe_out(an));
     
     //hcount vcount and frame_buff_out bc theyre all synchronized here
     //put throug rgb to hsv module
