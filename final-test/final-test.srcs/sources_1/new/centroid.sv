@@ -68,7 +68,7 @@ module centroid(clock, reset, x, y, green, centroid_x, centroid_y, frame_done, c
                 centroid_y <= y_acc>>13;
             end*/
             //ready <= 1;
-            if (count > 13'd6000) begin
+            if (count > 13'hFF) begin
                 centroid_x <= centroid_x_temp[33:24];  //d or e (13 or 14) seems good
                 centroid_y <= centroid_y_temp[32:24];
             end
