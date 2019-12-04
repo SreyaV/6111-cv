@@ -19,17 +19,17 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower, out_v);
+module rgb2hsv(clock, reset, r, g, b, color, h_upper, h_lower, v_upper, v_lower, out_h);
 		input wire clock;
 		input wire reset;
 		input wire [7:0] r;
 		input wire [7:0] g;
 		input wire [7:0] b;
-		output wire green;
-		input logic [6:0] h_upper;
-		input logic [6:0] h_lower;
+		output wire color;
+		input logic [7:0] h_upper;
+		input logic [7:0] h_lower;
 		input logic [7:0] v_upper;
-		input logic [5:0] v_lower;
+		input logic [7:0] v_lower;
 		
 		
 		reg [7:0] h;
@@ -55,14 +55,27 @@ module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower,
 		reg [4:0] i;
 		logic s_ready;
 		logic h_ready;
-		output logic [7:0] out_v;
-		
+		logic [7:0] out_v;
+		output logic [7:0] out_h;
+		logic [31:0] s_quotient_temp;
+		logic [31:0] h_quotient_temp;
 		
 		// Clocks 4-18: perform all the divisions
 		//the s_divider (16/16) has delay 18
 		//the hue_div (16/16) has delay 18
 
-		divider hue_div1(
+div_16 hue_div1 (
+  .aclk(clock),                                      // input wire aclk
+  .s_axis_divisor_tvalid(1),    // input wire s_axis_divisor_tvalid
+  .s_axis_divisor_tdata(s_bottom),      // input wire [15 : 0] s_axis_divisor_tdata
+  .s_axis_dividend_tvalid(1),  // input wire s_axis_dividend_tvalid
+  .s_axis_dividend_tdata(s_top),    // input wire [15 : 0] s_axis_dividend_tdata
+  .m_axis_dout_tvalid(1),          // output wire m_axis_dout_tvalid
+  .m_axis_dout_tdata(s_quotient_temp)            // output wire [31 : 0] m_axis_dout_tdata
+);
+
+
+/*		divider hue_div1(
 		.clk(clock),
 		.dividend(s_top),
 		.divisor(s_bottom),
@@ -74,8 +87,18 @@ module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower,
 		.ready(s_ready),
 		.start(1),
 		.sign(0)
-		);
-		divider hue_div2(
+		);*/
+		
+	div_16 hue_div2 (
+  .aclk(clock),                                      // input wire aclk
+  .s_axis_divisor_tvalid(1),    // input wire s_axis_divisor_tvalid
+  .s_axis_divisor_tdata(h_bottom),      // input wire [15 : 0] s_axis_divisor_tdata
+  .s_axis_dividend_tvalid(1),  // input wire s_axis_dividend_tvalid
+  .s_axis_dividend_tdata(h_top),    // input wire [15 : 0] s_axis_dividend_tdata
+  .m_axis_dout_tvalid(1),          // output wire m_axis_dout_tvalid
+  .m_axis_dout_tdata(h_quotient_temp)            // output wire [31 : 0] m_axis_dout_tdata
+);
+/*		divider hue_div2(
 		.clk(clock),
 		.dividend(h_top),
 		.divisor(h_bottom),
@@ -84,7 +107,11 @@ module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower,
 		.ready(h_ready),
 		.start(1),
 		.sign(0)
-		);
+		);*/
+
+    assign s_quotient = s_quotient_temp[31:16];
+    assign h_quotient = h_quotient_temp[31:16];
+    
 		always @ (posedge clock) begin
 		
 			// Clock 1: latch the inputs (always positive)
@@ -161,8 +188,9 @@ module rgb2hsv(clock, reset, r, g, b, green, h_upper, h_lower, v_upper, v_lower,
 			
 		end
 		
-		assign green = ((h< h_upper) && (h>h_lower) && (v<v_upper) && (v>v_lower)) ? 1 : 0;
+		assign color = ((h< h_upper || h==h_upper) && (h>h_lower || h==h_lower) && (v<v_upper) && (v>v_lower)) ? 1 : 0;
 		assign out_v = v;
+		assign out_h=h;
 			/*if ((h< 90) && (h>30) && (v<255) && (v>80)) begin
 			//if (h< h_upper && h>h_lower && v<v_upper && v>v_lower) begin
 			    green <= 1;

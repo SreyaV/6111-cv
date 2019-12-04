@@ -89,18 +89,23 @@ module top_level(
     logic [16:0] pixel_addr_in;
     logic [16:0] pixel_addr_out;
     
-    logic [10:0] centroid_x;
-    logic [9:0] centroid_y;
+    logic [10:0] centroid_x_green;
+    logic [9:0] centroid_y_green;
+    logic [10:0] centroid_x_red;
+    logic [9:0] centroid_y_red;
     wire green;
+    wire red;
     logic frame_done;
     
     logic [15:0] averaging;
     assign averaging = sw;
     
-    logic [6:0] h_upper;
-    logic [6:0] h_lower;
+    logic [7:0] h_upper_green;
+    logic [7:0] h_lower_green;
+    logic [7:0] h_upper_red;
+    logic [7:0] h_lower_red;
     logic [7:0] v_upper;
-    logic [5:0] v_lower;
+    logic [7:0] v_lower;
     
     logic [10:0] hcount_camera;
     logic [9:0] vcount_camera;
@@ -173,6 +178,8 @@ module top_level(
   .empty(empty)  // output wire empty
 ); 
 
+
+
     assign frame_buff_out = fifo_temp[32:21];
     assign hcount_fifo = fifo_temp[20:10];
     assign vcount_fifo = fifo_temp[9:0];
@@ -195,12 +202,20 @@ module top_level(
     
     logic [7:0] h;
     logic [7:0] out_v;
-    assign h_upper = 96;
-    assign h_lower = 30;
+//    assign h_upper_green = 96;
+//    assign h_lower_green = 30;
+    
+    assign h_upper_green = 211; //150
+    assign h_lower_green = 63; //110
+    
+    assign h_upper_red = 10; //150
+    assign h_lower_red = 0; //110
+    
+    
 //    assign h_upper = sw[15:9]; //96
 //    assign h_lower = sw[6:0]; //48
-    assign v_upper = 255;
-    assign v_lower = 240;
+    assign v_upper = 224;
+    assign v_lower = 127; //240
 //    assign v_upper = sw[15:8];
 //    assign v_lower = sw[7:0];
 
@@ -214,12 +229,27 @@ module top_level(
 
     assign cam = frame_buff_out;
     
-    rgb2hsv rgb2hsv1 (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .green(green), .h_upper(h_upper), .h_lower(h_lower), .v_upper(v_upper), .v_lower(v_lower), .out_v(out_v));
+    wire temp;
+    logic [7:0] out_h;
     
-    logic [16:0] count;
-    logic [26:0] x_acc;
+    rgb2hsv rgb2hsv_red (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .color(red), .h_upper(h_upper_red), .h_lower(h_lower_red), .v_upper(v_upper), .v_lower(v_lower));
     
-    centroid centroid1 (.x_acc(x_acc),.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .green(!empty_p ? green : 0), .frame_done(frame_done), .centroid_x(centroid_x), .centroid_y(centroid_y), .count(count), .averaging(averaging));
+    rgb2hsv rgb2hsv_green (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .color(green), .h_upper(h_upper_green), .h_lower(h_lower_green), .v_upper(v_upper), .v_lower(v_lower));
+    
+    rgb2hsv rgb2hsv_test (.clock(clk_65mhz), .reset(reset), .r(sw[15:12]<<4), .g(sw[11:8]<<4), .b(sw[7:4]<<4), .color(temp), .h_upper(h_upper_red), .h_lower(h_lower_red), .v_upper(v_upper), .v_lower(v_lower), .out_h(out_h));
+
+    
+    logic [16:0] count_green;
+    logic [16:0] count_red;
+    
+    logic red_detected;
+    logic green_detected;
+    
+    centroid centroid_red (.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .color(!empty_p ? red : 0), .frame_done(frame_done), .centroid_x(centroid_x_red), .centroid_y(centroid_y_red), .count(count_red), .detected(red_detected));
+   
+    centroid centroid_green (.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .color(!empty_p ? green : 0), .frame_done(frame_done), .centroid_x(centroid_x_green), .centroid_y(centroid_y_green), .count(count_green), .detected(green_detected));
+    
+    
     
     //assign pixel_addr_out = hcount+vcount*32'd320;
     //assign pixel_addr_out = sw[2]?((hcount>>1)+(vcount>>1)*32'd320):hcount+vcount*32'd320;
@@ -244,10 +274,14 @@ module top_level(
     end
     
        logic [11:0] temp_rgb;
+       logic [11:0] dina_temp;
+       //assign dina_temp = (hcount_fifo==centroid_x_red || vcount_fifo==centroid_y_red) ? 12'h00F : red ? 12'h700 :  cam;
+       assign dina_temp = (hcount_fifo==centroid_x_green || vcount_fifo==centroid_y_green) ? 12'h00F : (hcount_fifo==centroid_x_red || vcount_fifo==centroid_y_red) ? 12'hF0F : green ? 12'h062 : red ? 12'h700 :  cam;
+
        
        blk_mem_gen_0 jojos_bram(.addra(pixel_addr_in), 
                              .clka(clk_65mhz),
-                             .dina((hcount_fifo==centroid_x || vcount_fifo==centroid_y) ? 12'hF00 : green ? 12'h062 : cam),
+                             .dina(dina_temp),
                              .wea(!delayed_empty),
                              .addrb(vga_pixel_addr_out),
                              .clkb(clk_65mhz),
@@ -255,10 +289,10 @@ module top_level(
                              
     assign rgb = (hcount<320 && vcount<240) ? temp_rgb : 0;
     
-    logic [7:0] display_v;
-    assign display_v = (hcount==160 && vcount==120) ? out_v : display_v;
+//    logic [7:0] display_v;
+//    assign display_v = (hcount==160 && vcount==120) ? out_v : display_v;
     
-    display_8hex display(.clk_in(clk_65mhz),.data_in(count), .seg_out(segments), .strobe_out(an));
+    display_8hex display(.clk_in(clk_65mhz),.data_in(count_green), .seg_out(segments), .strobe_out(an));
     
     //hcount vcount and frame_buff_out bc theyre all synchronized here
     //put throug rgb to hsv module

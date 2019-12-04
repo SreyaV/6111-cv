@@ -3,8 +3,6 @@
   <File Type="PA-TCL" Name="fifo_12.tcl"/>
   <File Type="REPORTS-TCL" Name="fifo_12_reports.tcl"/>
   <File Type="RDS-RDS" Name="fifo_12.vds"/>
-  <File Type="RDS-UTIL" Name="fifo_12_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="fifo_12_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="fifo_12.dcp"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fifo_12">
     <File Path="$PSRCDIR/sources_1/ip/fifo_12/fifo_12.xci">
