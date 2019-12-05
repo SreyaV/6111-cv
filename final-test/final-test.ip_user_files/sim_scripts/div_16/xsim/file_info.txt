@@ -1,2 +1,0 @@
-div_16.vhd,vhdl,xil_defaultlib,../../../../final-test.srcs/sources_1/ip/div_16/sim/div_16.vhd,
-glbl.v,Verilog,xil_defaultlib,glbl.v

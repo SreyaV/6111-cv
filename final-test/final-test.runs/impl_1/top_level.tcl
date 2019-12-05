@@ -60,28 +60,32 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
+  set_param tcl.collectionResultDisplayLimit 0
   set_param chipscope.maxJobs 1
   set_param xicom.use_bs_reader 1
   create_project -in_memory -part xc7a100tcsg324-1
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.cache/wt} [current_project]
-  set_property parent.project_path {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.xpr} [current_project]
-  set_property ip_output_repo {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.cache/ip}} [current_project]
+  set_property webtalk.parent_dir C:/Users/Jeremy/6111-cv/final-test/final-test.cache/wt [current_project]
+  set_property parent.project_path C:/Users/Jeremy/6111-cv/final-test/final-test.xpr [current_project]
+  set_property ip_repo_paths C:/Users/Jeremy/6111-cv/vivado-library/ip [current_project]
+  update_ip_catalog
+  set_property ip_output_repo C:/Users/Jeremy/6111-cv/final-test/final-test.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
-  add_files -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/top_level.dcp}}
-  read_ip -quiet {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16.xci}}
-  read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci}}
-  read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div.xci}}
-  read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33.xci}}
-  read_xdc {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc}}
+  add_files -quiet C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_1/top_level.dcp
+  read_ip -quiet C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16.xci
+  read_ip -quiet C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+  read_ip -quiet C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div.xci
+  read_ip -quiet C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33.xci
+  read_ip -quiet C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi.xci
+  read_ip -quiet C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio.xci
+  read_xdc C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc
   link_design -top top_level -part xc7a100tcsg324-1
   close_msg_db -file init_design.pb
 } RESULT]

@@ -1,0 +1,268 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:13:38 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'vio'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of vio (xilinx.com:ip:vio:3.0 (Rev. 20)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:13:32 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'ila_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of ila_0 (xilinx.com:ip:ila:6.2 (Rev. 9)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:12:34 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'hdmi'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of hdmi (digilentinc.com:ip:rgb2dvi:1.4 (Rev. 7)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:12:32 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'fifo_generator_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of fifo_generator_0 (xilinx.com:ip:fifo_generator:13.2 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:12:30 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'fifo_33'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of fifo_33 (xilinx.com:ip:fifo_generator:13.2 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:12:28 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'fifo_17'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of fifo_17 (xilinx.com:ip:fifo_generator:13.2 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:12:26 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'fifo_12'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of fifo_12 (xilinx.com:ip:fifo_generator:13.2 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:12:24 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'fifo_11'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of fifo_11 (xilinx.com:ip:fifo_generator:13.2 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:12:23 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'fifo_10'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of fifo_10 (xilinx.com:ip:fifo_generator:13.2 (Rev. 4)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:12:00 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'clk_wiz_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of clk_wiz_0 (xilinx.com:ip:clk_wiz:6.0 (Rev. 3)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:11:54 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'centroid_div'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of centroid_div (xilinx.com:ip:div_gen:5.1 (Rev. 15)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:11:53 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'blk_mem_gen_0'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of blk_mem_gen_0 (xilinx.com:ip:blk_mem_gen:8.4 (Rev. 3)) to Vivado generation flows.
+
+
+
+
+
+
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec  4 21:11:13 2019
+| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Command      : upgrade_ip
+| Device       : xc7a200tsbg484-3
+------------------------------------------------------------------------------------
+
+Upgrade Log for IP 'div_16'
+
+1. Summary
+----------
+
+SUCCESS in the conversion of div_16 (xilinx.com:ip:div_gen:5.1 (Rev. 15)) to Vivado generation flows.
+

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="fifo_33_synth_1" LaunchPart="xc7a100tcsg324-1" LaunchTime="1574353420">
+<GenRun Id="fifo_33_synth_1" LaunchPart="xc7a200tsbg484-3" LaunchTime="1575512068">
   <File Type="PA-TCL" Name="fifo_33.tcl"/>
   <File Type="REPORTS-TCL" Name="fifo_33_reports.tcl"/>
   <File Type="RDS-RDS" Name="fifo_33.vds"/>
+  <File Type="RDS-UTIL" Name="fifo_33_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="fifo_33_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="fifo_33.dcp"/>
   <FileSet Name="sources" Type="BlockSrcs" RelSrcDir="$PSRCDIR/fifo_33">
     <File Path="$PSRCDIR/sources_1/ip/fifo_33/fifo_33.xci">

@@ -2,11 +2,11 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Wed Dec  4 00:02:41 2019
-# Process ID: 6152
-# Current directory: C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1
+# Start of session at: Wed Dec  4 20:54:01 2019
+# Process ID: 6684
+# Current directory: C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_1
 # Command line: vivado.exe -log top_level.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top_level.tcl
-# Log file: C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1/top_level.vds
-# Journal file: C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_1\vivado.jou
+# Log file: C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_1/top_level.vds
+# Journal file: C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source top_level.tcl -notrace

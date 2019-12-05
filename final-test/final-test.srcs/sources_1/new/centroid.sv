@@ -23,13 +23,14 @@
 //frame done
 //update centroid_x, centroid_y when done
 //send in x, y, isgreen
-module centroid(clock, reset, x, y, color, centroid_x, centroid_y, frame_done, count, detected);
+module centroid(clock, reset, x, y, color, centroid_x, centroid_y, frame_done, count_out, detected, count_threshold);
     input logic clock;
     input logic reset;
     input logic [10:0] x;
     input logic [9:0] y;
     input logic color;
     input logic frame_done;
+    input [16:0] count_threshold;
     logic [15:0] averaging;
     output logic [10:0] centroid_x;
     output logic [9:0] centroid_y;
@@ -38,7 +39,8 @@ module centroid(clock, reset, x, y, color, centroid_x, centroid_y, frame_done, c
     logic [55:0] centroid_y_temp;
     logic [26:0] x_acc;
     logic [26:0] y_acc;
-    output logic [16:0] count;
+    logic [16:0] count;
+    output logic [16:0] count_out;
     logic last_frame_done;
     logic ready;
     
@@ -69,7 +71,8 @@ module centroid(clock, reset, x, y, color, centroid_x, centroid_y, frame_done, c
                 centroid_y <= y_acc>>13;
             end*/
             //ready <= 1;
-            if (count > 13'hFF) begin
+            count_out <= count;
+            if (count > count_threshold) begin
                 centroid_x <= centroid_x_temp[33:24];  //d or e (13 or 14) seems good
                 centroid_y <= centroid_y_temp[32:24];
                 detected<=1;

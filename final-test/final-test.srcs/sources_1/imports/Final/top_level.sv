@@ -10,48 +10,28 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module top_level(
-   input clk_100mhz,
-   input[15:0] sw,
+
+    input clk,
+   input [7:0] sw,
    input btnc, btnu, btnl, btnr, btnd,
-   input [7:0] ja,
-   input [2:0] jb,
-   output   jbclk,
-   input [2:0] jd,
-   output   jdclk,
-   output[3:0] vga_r,
-   output[3:0] vga_b,
-   output[3:0] vga_g,
-   //output [7:0] hue,
-   //output [7:0] saturation,
-   //output [7:0] value,
-   output vga_hs, //delay 22 cycles
-   output vga_vs, //delay 22 cycles
-   output led16_b, led16_g, led16_r,
-   output led17_b, led17_g, led17_r,
-   output[15:0] led,
-   output ca, cb, cc, cd, ce, cf, cg, dp,  // segments a-g, dp
-   output[7:0] an    // Display location 0-7
+   input [7:0] jb,
+   input [2:0] jc,
+   output jcclk,
+   output logic [7:0] led,
+   output logic hdmi_tx_clk_n,
+    output logic hdmi_tx_clk_p,
+    output logic [2:0] hdmi_tx_n,
+    output logic [2:0] hdmi_tx_p
    );
     logic clk_65mhz;
     // create 65mhz system clock, happens to match 1024 x 768 XVGA timing
     //clk_wiz_0 clkdivider(.clk_in1(clk_100mhz), .clk_out1(clk_65mhz));
-    clk_wiz_lab3 clkdivider(.clk_in1(clk_100mhz), .clk_out1(clk_65mhz));
+    clk_wiz_lab3 clkdivider(.clk_in1(clk), .clk_out1(clk_65mhz));
 
     wire [31:0] data;      //  instantiate 7-segment display; display (8) 4-bit hex
     wire [6:0] segments;
-    assign {cg, cf, ce, cd, cc, cb, ca} = segments[6:0];
-    //display_8hex display(.clk_in(clk_65mhz),.data_in(data), .seg_out(segments), .strobe_out(an));
-    //assign seg[6:0] = segments;
-    assign  dp = 1'b1;  // turn off the period
-
     assign led = sw;                        // turn leds on
     assign data = {28'h0123456, sw[3:0]};   // display 0123456 + sw[3:0]
-    assign led16_r = btnl;                  // left button -> red led
-    assign led16_g = btnc;                  // center button -> green led
-    assign led16_b = btnr;                  // right button -> blue led
-    assign led17_r = btnl;
-    assign led17_g = btnc;
-    assign led17_b = btnr;
 
     wire [10:0] hcount;    // pixel on current line
     wire [9:0] vcount;     // line number
@@ -104,8 +84,15 @@ module top_level(
     logic [7:0] h_lower_green;
     logic [7:0] h_upper_red;
     logic [7:0] h_lower_red;
-    logic [7:0] v_upper;
-    logic [7:0] v_lower;
+    logic [7:0] v_upper_green;
+    logic [7:0] v_lower_green;
+    logic [7:0] v_upper_red;
+    logic [7:0] v_lower_red;
+    logic [7:0] s_upper_green;
+    logic [7:0] s_lower_green;
+    logic [7:0] s_upper_red;
+    logic [7:0] s_lower_red;
+    
     
     logic [10:0] hcount_camera;
     logic [9:0] vcount_camera;
@@ -115,7 +102,7 @@ module top_level(
     
     
     assign xclk = (xclk_count >2'b01);
-    assign jbclk = xclk;
+    assign jcclk = xclk;
     assign jdclk = xclk;
     
 //    assign red_diff = (output_pixels[15:12]>old_output_pixels[15:12])?output_pixels[15:12]-old_output_pixels[15:12]:old_output_pixels[15:12]-output_pixels[15:12];
@@ -187,10 +174,10 @@ module top_level(
     assign pixel_addr_in = hcount_fifo+vcount_fifo*32'd320;
     
     always_ff @(posedge clk_65mhz) begin
-        pclk_buff <= jb[0];//WAS JB
-        vsync_buff <= jb[1]; //WAS JB
-        href_buff <= jb[2]; //WAS JB
-        pixel_buff <= ja;
+        pclk_buff <= jc[0];//WAS JB
+        vsync_buff <= jc[1]; //WAS JB
+        href_buff <= jc[2]; //WAS JB
+        pixel_buff <= jb;
         pclk_in <= pclk_buff;
         vsync_in <= vsync_buff;
         href_in <= href_buff;
@@ -205,17 +192,17 @@ module top_level(
 //    assign h_upper_green = 96;
 //    assign h_lower_green = 30;
     
-    assign h_upper_green = 211; //150
-    assign h_lower_green = 63; //110
+//    assign h_upper_green = 211; //150
+//    assign h_lower_green = 63; //110
     
-    assign h_upper_red = 10; //150
-    assign h_lower_red = 0; //110
+//    assign h_upper_red = 10; //150
+//    assign h_lower_red = 0; //110
     
     
 //    assign h_upper = sw[15:9]; //96
 //    assign h_lower = sw[6:0]; //48
-    assign v_upper = 224;
-    assign v_lower = 127; //240
+//    assign v_upper = 224;
+//    assign v_lower = 127; //240
 //    assign v_upper = sw[15:8];
 //    assign v_lower = sw[7:0];
 
@@ -232,12 +219,12 @@ module top_level(
     wire temp;
     logic [7:0] out_h;
     
-    rgb2hsv rgb2hsv_red (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .color(red), .h_upper(h_upper_red), .h_lower(h_lower_red), .v_upper(v_upper), .v_lower(v_lower));
+    rgb2hsv rgb2hsv_red (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .color(red), .h_upper(h_upper_red), .h_lower(h_lower_red), .v_upper(v_upper_red), .v_lower(v_lower_red), .s_upper(s_upper_red), .s_lower(s_lower_red));
     
-    rgb2hsv rgb2hsv_green (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .color(green), .h_upper(h_upper_green), .h_lower(h_lower_green), .v_upper(v_upper), .v_lower(v_lower));
-    
-    rgb2hsv rgb2hsv_test (.clock(clk_65mhz), .reset(reset), .r(sw[15:12]<<4), .g(sw[11:8]<<4), .b(sw[7:4]<<4), .color(temp), .h_upper(h_upper_red), .h_lower(h_lower_red), .v_upper(v_upper), .v_lower(v_lower), .out_h(out_h));
-
+    rgb2hsv rgb2hsv_green (.clock(clk_65mhz), .reset(reset), .r(cam[11:8]<<4), .g(cam[7:4]<<4), .b(cam[3:0]<<4), .color(green), .h_upper(h_upper_green), .h_lower(h_lower_green), .v_upper(v_upper_green), .v_lower(v_lower_green), .s_upper(s_upper_green), .s_lower(s_lower_green));
+   
+   logic [16:0] count_green_threshold;
+    logic [16:0] count_red_threshold;
     
     logic [16:0] count_green;
     logic [16:0] count_red;
@@ -245,9 +232,9 @@ module top_level(
     logic red_detected;
     logic green_detected;
     
-    centroid centroid_red (.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .color(!empty_p ? red : 0), .frame_done(frame_done), .centroid_x(centroid_x_red), .centroid_y(centroid_y_red), .count(count_red), .detected(red_detected));
+    centroid centroid_red (.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .color(!empty_p ? red : 0), .frame_done(frame_done), .centroid_x(centroid_x_red), .centroid_y(centroid_y_red), .count_out(count_red), .detected(red_detected), .count_threshold(count_red_threshold));
    
-    centroid centroid_green (.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .color(!empty_p ? green : 0), .frame_done(frame_done), .centroid_x(centroid_x_green), .centroid_y(centroid_y_green), .count(count_green), .detected(green_detected));
+    centroid centroid_green (.clock(clk_65mhz), .reset(reset), .x(hcount_fifo), .y(vcount_fifo), .color(!empty_p ? green : 0), .frame_done(frame_done), .centroid_x(centroid_x_green), .centroid_y(centroid_y_green), .count_out(count_green), .detected(green_detected), .count_threshold(count_green_threshold));
     
     
     
@@ -288,22 +275,31 @@ module top_level(
                              .doutb(temp_rgb));
                              
     assign rgb = (hcount<320 && vcount<240) ? temp_rgb : 0;
-    
-//    logic [7:0] display_v;
-//    assign display_v = (hcount==160 && vcount==120) ? out_v : display_v;
-    
-    display_8hex display(.clk_in(clk_65mhz),.data_in(count_green), .seg_out(segments), .strobe_out(an));
-    
-    //hcount vcount and frame_buff_out bc theyre all synchronized here
-    //put throug rgb to hsv module
-    //use a shift register to delay 22 counts
-    
-//    ila_0 joes_ila(.clk(clk_65mhz),    .probe0(pixel_in), 
-//                                        .probe1(pclk_in), 
-//                                        .probe2(vsync_in),
-//                                        .probe3(href_in),
-//                                        .probe4(jbclk));
 
+
+    vio vio (
+      .clk(clk_65mhz),                  // input wire clk
+      .probe_in0(centroid_x_red),      // input wire [10 : 0] probe_in0
+      .probe_in1(centroid_y_red),      // input wire [9 : 0] probe_in1
+      .probe_in2(centroid_x_green),      // input wire [10 : 0] probe_in2
+      .probe_in3(centroid_y_green),      // input wire [9 : 0] probe_in3
+      .probe_in4(count_green),      // input wire [16 : 0] probe_in4
+      .probe_in5(count_red),      // input wire [16 : 0] probe_in5
+      .probe_out0(h_upper_green),    // output wire [7 : 0] probe_out0
+      .probe_out1(h_lower_green),    // output wire [7 : 0] probe_out1
+      .probe_out2(h_upper_red),    // output wire [7 : 0] probe_out2
+      .probe_out3(h_lower_red),    // output wire [7 : 0] probe_out3
+      .probe_out4(s_upper_green),    // output wire [7 : 0] probe_out4
+      .probe_out5(s_lower_green),    // output wire [7 : 0] probe_out5
+      .probe_out6(s_upper_red),    // output wire [7 : 0] probe_out6
+      .probe_out7(s_lower_red),    // output wire [7 : 0] probe_out7
+      .probe_out8(v_upper_green),    // output wire [7 : 0] probe_out8
+      .probe_out9(v_lower_green),    // output wire [7 : 0] probe_out9
+      .probe_out10(v_upper_red),  // output wire [7 : 0] probe_out10
+      .probe_out11(v_lower_red),  // output wire [7 : 0] probe_out11
+      .probe_out12(count_green_threshold),
+      .probe_out13(count_red_threshold)
+    );
 
                                         
    camera_read  my_camera(.p_clock_in(pclk_in),
@@ -319,22 +315,13 @@ module top_level(
     debounce db2(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnu),.clean_out(up));
     debounce db3(.reset_in(reset),.clock_in(clk_65mhz),.noisy_in(btnd),.clean_out(down));
 
-    wire phsync,pvsync,pblank;
-    pong_game pg(.vclock_in(clk_65mhz),.reset_in(reset),
-                .up_in(up),.down_in(down),.pspeed_in(sw[15:12]),
-                .hcount_in(hcount),.vcount_in(vcount),
-                .hsync_in(hsync),.vsync_in(vsync),.blank_in(blank),
-                .phsync_out(phsync),.pvsync_out(pvsync),.pblank_out(pblank),.pixel_out(pixel), .centroid_x(centroid_x), .centroid_y(centroid_y));
-
-    wire border = (hcount==0 | hcount==1023 | vcount==0 | vcount==767 |
-                   hcount == 512 | vcount == 384);
 
     reg b,hs,vs;
     always_ff @(posedge clk_65mhz) begin
          // default: pong
-         hs <= phsync;
-         vs <= pvsync;
-         b <= pblank;
+         hs <= hsync;
+         vs <= vsync;
+         b <= blank;
 //         if (pixel > 0 && hcount<320 && vcount<240) begin
 //            rgb <= pixel;
             
@@ -348,24 +335,30 @@ module top_level(
          end*/
     end
 
-//    assign rgb = sw[0] ? {12{border}} : pixel ; //{{4{hcount[7]}}, {4{hcount[6]}}, {4{hcount[5]}}};
+    logic [23:0] rgb24;
 
-    // the following lines are required for the Nexys4 VGA circuit - do not change
-    assign vga_r = ~b ? rgb[11:8]: 0;
-    assign vga_g = ~b ? rgb[7:4] : 0;
-    assign vga_b = ~b ? rgb[3:0] : 0;
+    hdmi hdmi (
+      .TMDS_Clk_p(hdmi_tx_clk_p),    // output wire TMDS_Clk_p
+      .TMDS_Clk_n(hdmi_tx_clk_n),    // output wire TMDS_Clk_n
+      .TMDS_Data_p(hdmi_tx_p),  // output wire [2 : 0] TMDS_Data_p
+      .TMDS_Data_n(hdmi_tx_n),  // output wire [2 : 0] TMDS_Data_n
+      .aRst(1'b0),                // input wire aRst
+      .vid_pData(rgb24),      // input wire [23 : 0] vid_pData
+      .vid_pVDE(~b),        // input wire vid_pVDE
+      .vid_pHSync(~hs),    // input wire vid_pHSync
+      .vid_pVSync(~vs),    // input wire vid_pVSync
+      .PixelClk(clk_65mhz)        // input wire PixelClk
+    );
     
-
-    assign vga_hs = ~hs;
-    assign vga_vs = ~vs;
+    assign rgb24 = {rgb[11:8], 4'hF, rgb[3:0], 4'hF, rgb[7:4], 4'hF};
     
     logic [21:0] hsync_shift_reg;
     logic [21:0] vsync_shift_reg;
     logic [4:0] sync_dly;
     assign sync_dly = 22;
     
-    assign hs = hsync_shift_reg[sync_dly-1];
-    assign vs = vsync_shift_reg[sync_dly-1];
+//    assign hs = hsync_shift_reg[sync_dly-1];
+//    assign vs = vsync_shift_reg[sync_dly-1];
 
     //assign hsync_out = hsync_shift_reg[sync_dly-1];
     //for hs, vs, and b (blank_out)
