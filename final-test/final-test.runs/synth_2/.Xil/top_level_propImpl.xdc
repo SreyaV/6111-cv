@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc rfile:../../../final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc} rfile:../../../final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:8 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict { PACKAGE_PIN R4    IOSTANDARD LVCMOS33 } [get_ports { clk }]; #IO_L13P_T2_MRCC_34 Sch=sysclk
 set_property src_info {type:XDC file:1 line:22 export:INPUT save:INPUT read:READ} [current_design]

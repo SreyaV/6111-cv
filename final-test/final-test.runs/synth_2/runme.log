@@ -10,22 +10,27 @@
 
 source top_level.tcl -notrace
 INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/Jeremy/6111-cv/vivado-library/ip'.
+WARNING: [IP_Flow 19-2248] Failed to load user IP repository 'c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/vivado-library/ip'; Can't find the specified path.
+If this directory should no longer be in your list of user repositories, go to the IP Settings dialog and remove it.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.1/data/ip'.
+WARNING: [IP_Flow 19-4995] The host OS only allows 260 characters in a normal path. The IP cache path is more than 80 characters. If you experience issues with IP caching, please consider changing the IP cache to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter. 
+Current IP cache path is c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.cache/ip 
 Command: synth_design -top top_level -part xc7a200tsbg484-3
 Starting synth_design
+INFO: [IP_Flow 19-2162] IP 'hdmi' is locked:
+* IP definition 'rgb2dvi (1.4)' for IP 'hdmi' (customized with software release 2019.1) was not found in the IP Catalog.
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a200t'
 INFO: [Device 21-403] Loading part xc7a200tsbg484-3
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 4332 
-WARNING: [Synth 8-6901] identifier 'N_BITS' is used before its declaration [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/pipeline.sv:6]
-WARNING: [Synth 8-6901] identifier 'N_BITS' is used before its declaration [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/pipeline.sv:7]
+INFO: Helper process launched with PID 20296 
+WARNING: [Synth 8-6901] identifier 'N_BITS' is used before its declaration [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv:6]
+WARNING: [Synth 8-6901] identifier 'N_BITS' is used before its declaration [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv:7]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 784.625 ; gain = 181.762
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 776.063 ; gain = 181.969
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'top_level' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_lab3' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v:67]
+INFO: [Synth 8-6157] synthesizing module 'top_level' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_lab3' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v:67]
 INFO: [Synth 8-6157] synthesizing module 'IBUF' [C:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:32856]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
@@ -85,8 +90,8 @@ INFO: [Synth 8-6157] synthesizing module 'MMCME2_ADV' [C:/Xilinx/Vivado/2019.1/s
 INFO: [Synth 8-6155] done synthesizing module 'MMCME2_ADV' (2#1) [C:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:39813]
 INFO: [Synth 8-6157] synthesizing module 'BUFG' [C:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
 INFO: [Synth 8-6155] done synthesizing module 'BUFG' (3#1) [C:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_lab3' (4#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v:67]
-INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:564]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_lab3' (4#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/6.111/clk_wiz_lab3.v:67]
+INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:564]
 	Parameter DISPLAY_WIDTH bound to: 1024 - type: integer 
 	Parameter DISPLAY_HEIGHT bound to: 768 - type: integer 
 	Parameter H_FP bound to: 24 - type: integer 
@@ -95,52 +100,52 @@ INFO: [Synth 8-6157] synthesizing module 'xvga' [C:/Users/Jeremy/6111-cv/final-t
 	Parameter V_FP bound to: 3 - type: integer 
 	Parameter V_SYNC_PULSE bound to: 6 - type: integer 
 	Parameter V_BP bound to: 29 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'xvga' (5#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:564]
-INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:433]
-INFO: [Synth 8-6155] done synthesizing module 'debounce' (6#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:433]
-INFO: [Synth 8-6157] synthesizing module 'fifo_33' [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/fifo_33_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'fifo_33' (7#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/fifo_33_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'pipeline' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/pipeline.sv:3]
+INFO: [Synth 8-6155] done synthesizing module 'xvga' (5#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:564]
+INFO: [Synth 8-6157] synthesizing module 'debounce' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:433]
+INFO: [Synth 8-6155] done synthesizing module 'debounce' (6#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:433]
+INFO: [Synth 8-6157] synthesizing module 'fifo_33' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/fifo_33_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'fifo_33' (7#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/fifo_33_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'pipeline' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv:3]
 	Parameter N_BITS bound to: 1 - type: integer 
 	Parameter N_REGISTERS bound to: 22 - type: integer 
-INFO: [Synth 8-6155] done synthesizing module 'pipeline' (8#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/pipeline.sv:3]
-INFO: [Synth 8-6157] synthesizing module 'rgb2hsv' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
-INFO: [Synth 8-6157] synthesizing module 'div_16' [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/div_16_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'div_16' (9#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/div_16_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'rgb2hsv' (10#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
-WARNING: [Synth 8-7023] instance 'rgb2hsv_red' of module 'rgb2hsv' has 13 connections declared, but only 12 given [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:222]
-WARNING: [Synth 8-7023] instance 'rgb2hsv_green' of module 'rgb2hsv' has 13 connections declared, but only 12 given [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:224]
-INFO: [Synth 8-6157] synthesizing module 'centroid' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
-INFO: [Synth 8-6157] synthesizing module 'centroid_div' [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/centroid_div_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'centroid_div' (11#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/centroid_div_stub.v:6]
-WARNING: [Synth 8-6014] Unused sequential element ready_reg was removed.  [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/centroid.sv:54]
-INFO: [Synth 8-6155] done synthesizing module 'centroid' (12#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
-WARNING: [Synth 8-689] width (32) of port connection 'color' does not match port width (1) of module 'centroid' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:235]
-WARNING: [Synth 8-689] width (32) of port connection 'color' does not match port width (1) of module 'centroid' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:237]
-INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/blk_mem_gen_0_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (13#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/blk_mem_gen_0_stub.v:6]
-WARNING: [Synth 8-689] width (12) of port connection 'doutb' does not match port width (16) of module 'blk_mem_gen_0' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:275]
-INFO: [Synth 8-6157] synthesizing module 'vio' [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/vio_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'vio' (14#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/vio_stub.v:6]
-INFO: [Synth 8-6157] synthesizing module 'camera_read' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'pipeline' (8#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/pipeline.sv:3]
+INFO: [Synth 8-6157] synthesizing module 'rgb2hsv' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
+INFO: [Synth 8-6157] synthesizing module 'div_16' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/div_16_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'div_16' (9#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/div_16_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'rgb2hsv' (10#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:22]
+WARNING: [Synth 8-7023] instance 'rgb2hsv_red' of module 'rgb2hsv' has 13 connections declared, but only 12 given [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:222]
+WARNING: [Synth 8-7023] instance 'rgb2hsv_green' of module 'rgb2hsv' has 13 connections declared, but only 12 given [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:224]
+INFO: [Synth 8-6157] synthesizing module 'centroid' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
+INFO: [Synth 8-6157] synthesizing module 'centroid_div' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/centroid_div_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'centroid_div' (11#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/centroid_div_stub.v:6]
+WARNING: [Synth 8-6014] Unused sequential element ready_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:54]
+INFO: [Synth 8-6155] done synthesizing module 'centroid' (12#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/centroid.sv:26]
+WARNING: [Synth 8-689] width (32) of port connection 'color' does not match port width (1) of module 'centroid' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:235]
+WARNING: [Synth 8-689] width (32) of port connection 'color' does not match port width (1) of module 'centroid' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:237]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (13#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/blk_mem_gen_0_stub.v:6]
+WARNING: [Synth 8-689] width (12) of port connection 'doutb' does not match port width (16) of module 'blk_mem_gen_0' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:275]
+INFO: [Synth 8-6157] synthesizing module 'vio' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/vio_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'vio' (14#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/vio_stub.v:6]
+INFO: [Synth 8-6157] synthesizing module 'camera_read' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
 	Parameter WAIT_FRAME_START bound to: 0 - type: integer 
 	Parameter ROW_CAPTURE bound to: 1 - type: integer 
-INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:21]
-INFO: [Synth 8-6155] done synthesizing module 'camera_read' (15#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'hdmi' [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/hdmi_stub.v:6]
-INFO: [Synth 8-6155] done synthesizing module 'hdmi' (16#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/.Xil/Vivado-6448-DESKTOP-982HE02/realtime/hdmi_stub.v:6]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'vio'. This will prevent further optimization [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:280]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'rgb2hsv_green'. This will prevent further optimization [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:224]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'rgb2hsv_red'. This will prevent further optimization [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:222]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'centroid_green'. This will prevent further optimization [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:237]
-INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'centroid_red'. This will prevent further optimization [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:235]
-WARNING: [Synth 8-6014] Unused sequential element old_output_pixels_reg was removed.  [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:185]
-INFO: [Synth 8-6155] done synthesizing module 'top_level' (17#1) [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:21]
+INFO: [Synth 8-6155] done synthesizing module 'camera_read' (15#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/camera_read.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'hdmi' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/hdmi_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'hdmi' (16#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/.Xil/Vivado-196-DESKTOP-7EQCPG5/realtime/hdmi_stub.v:6]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'vio'. This will prevent further optimization [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:280]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'rgb2hsv_green'. This will prevent further optimization [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:224]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'rgb2hsv_red'. This will prevent further optimization [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:222]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'centroid_green'. This will prevent further optimization [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:237]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'centroid_red'. This will prevent further optimization [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:235]
+WARNING: [Synth 8-6014] Unused sequential element old_output_pixels_reg was removed.  [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:185]
+INFO: [Synth 8-6155] done synthesizing module 'top_level' (17#1) [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/imports/Final/top_level.sv:12]
 WARNING: [Synth 8-3331] design rgb2hsv has unconnected port reset
 WARNING: [Synth 8-3331] design top_level has unconnected port btnl
 WARNING: [Synth 8-3331] design top_level has unconnected port btnr
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 829.871 ; gain = 227.008
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 821.316 ; gain = 227.223
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -153,10 +158,10 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 829.871 ; gain = 227.008
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 821.316 ; gain = 227.223
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 829.871 ; gain = 227.008
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 821.316 ; gain = 227.223
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -164,42 +169,42 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'jojos_bram'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'jojos_bram'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33/fifo_33_in_context.xdc] for cell 'fifo'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33/fifo_33_in_context.xdc] for cell 'fifo'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc] for cell 'hdmi'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc] for cell 'hdmi'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio/vio_in_context.xdc] for cell 'vio'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio/vio_in_context.xdc] for cell 'vio'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_red/xcenter'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_red/xcenter'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_red/ycenter'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_red/ycenter'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_green/xcenter'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_green/xcenter'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_green/ycenter'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_green/ycenter'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_red/hue_div1'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_red/hue_div1'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_red/hue_div2'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_red/hue_div2'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_green/hue_div1'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_green/hue_div1'
-Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_green/hue_div2'
-Finished Parsing XDC File [c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_green/hue_div2'
-Parsing XDC File [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]
-Finished Parsing XDC File [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_level_propImpl.xdc].
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'jojos_bram'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'jojos_bram'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33/fifo_33_in_context.xdc] for cell 'fifo'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/fifo_33/fifo_33/fifo_33_in_context.xdc] for cell 'fifo'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc] for cell 'hdmi'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc] for cell 'hdmi'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio/vio_in_context.xdc] for cell 'vio'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio/vio_in_context.xdc] for cell 'vio'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_red/xcenter'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_red/xcenter'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_red/ycenter'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_red/ycenter'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_green/xcenter'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_green/xcenter'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_green/ycenter'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/centroid_div/centroid_div/centroid_div_in_context.xdc] for cell 'centroid_green/ycenter'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_red/hue_div1'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_red/hue_div1'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_red/hue_div2'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_red/hue_div2'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_green/hue_div1'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_green/hue_div1'
+Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_green/hue_div2'
+Finished Parsing XDC File [c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/div_16/div_16/div_16_in_context.xdc] for cell 'rgb2hsv_green/hue_div2'
+Parsing XDC File [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]
+Finished Parsing XDC File [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/constrs_1/imports/Final/nexys4ddr.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_level_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/top_level_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 INFO: [Timing 38-2] Deriving generated clocks
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 981.945 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 973.121 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 981.945 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.033 . Memory (MB): peak = 973.121 ; gain = 0.000
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'fifo' at clock pin 'rd_clk' is different from the actual clock period '15.385', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'jojos_bram' at clock pin 'clka' is different from the actual clock period '15.385', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'centroid_green/xcenter' at clock pin 'aclk' is different from the actual clock period '15.385', this can lead to different synthesis results.
@@ -211,34 +216,34 @@ WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'rgb2hsv_red/hue_div1' at clock pin 'aclk' is different from the actual clock period '15.385', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '1000.000' specified during out-of-context synthesis of instance 'rgb2hsv_red/hue_div2' at clock pin 'aclk' is different from the actual clock period '15.385', this can lead to different synthesis results.
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 981.945 ; gain = 379.082
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 973.121 ; gain = 379.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a200tsbg484-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 981.945 ; gain = 379.082
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 973.121 ; gain = 379.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_clk_n. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 1).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_clk_n. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 2).
-Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_clk_p. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 3).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_clk_p. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 4).
-Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[0]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 5).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[0]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 6).
-Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[1]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 7).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[1]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 8).
-Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[2]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 9).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[2]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 10).
-Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[0]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 11).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[0]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 12).
-Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[1]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 13).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[1]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 14).
-Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[2]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 15).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[2]. (constraint file  c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc, line 16).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_clk_n. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 1).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_clk_n. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 2).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_clk_p. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_clk_p. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 4).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[0]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 5).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[0]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 6).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[1]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 7).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[1]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 8).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_n[2]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 9).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_n[2]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 10).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[0]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 11).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[0]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 12).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[1]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 13).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[1]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 14).
+Applied set_property IO_BUFFER_TYPE = NONE for hdmi_tx_p[2]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 15).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for hdmi_tx_p[2]. (constraint file  {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/hdmi/hdmi/hdmi_in_context.xdc}, line 16).
 Applied set_property DONT_TOUCH = true for jojos_bram. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for fifo. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for hdmi. (constraint file  auto generated constraint, line ).
@@ -252,30 +257,30 @@ Applied set_property DONT_TOUCH = true for rgb2hsv_green/hue_div1. (constraint f
 Applied set_property DONT_TOUCH = true for rgb2hsv_red/hue_div2. (constraint file  auto generated constraint, line ).
 Applied set_property DONT_TOUCH = true for rgb2hsv_green/hue_div2. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 981.945 ; gain = 379.082
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 973.121 ; gain = 379.027
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:160]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:160]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:155]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:155]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:154]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:154]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:100]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:100]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:181]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:160]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:160]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:155]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:155]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:154]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:154]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:100]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:100]
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:181]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:160]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:160]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:155]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:155]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:154]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:154]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:100]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:100]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:181]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:160]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:160]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:155]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:155]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:154]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:154]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:150]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <multiplier> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:100]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:100]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:181]
 INFO: [Synth 8-802] inferred FSM for state register 'FSM_state_reg' in module 'camera_read'
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
@@ -285,7 +290,7 @@ INFO: [Synth 8-802] inferred FSM for state register 'FSM_state_reg' in module 'c
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'FSM_state_reg' using encoding 'sequential' in module 'camera_read'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 981.945 ; gain = 379.082
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:19 . Memory (MB): peak = 973.121 ; gain = 379.027
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -443,13 +448,13 @@ Finished Part Resource Summary
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
-INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:142]
-INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:142]
+INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:142]
+INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:142]
 DSP Report: Generating DSP h_top_reg, operation Mode is: (A*(B:0xff))'.
 DSP Report: register h_top_reg is absorbed into DSP h_top_reg.
 DSP Report: operator h_top0 is absorbed into DSP h_top_reg.
-INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:142]
-INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:142]
+INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:142]
+INFO: [Synth 8-4471] merging register 'delta_reg[7:0]' into 'delta_reg[7:0]' [C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/new/rgb2hsv.sv:142]
 DSP Report: Generating DSP h_top_reg, operation Mode is: (A*(B:0xff))'.
 DSP Report: register h_top_reg is absorbed into DSP h_top_reg.
 DSP Report: operator h_top0 is absorbed into DSP h_top_reg.
@@ -575,7 +580,7 @@ INFO: [Synth 8-3333] propagating constant 0 across sequential element (centroid_
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (centroid_green/\centroid_y_reg[9] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (centroid_green/\centroid_x_reg[10] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 981.945 ; gain = 379.082
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 973.121 ; gain = 379.027
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -605,13 +610,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:37 ; elapsed = 00:00:38 . Memory (MB): peak = 1003.016 ; gain = 400.152
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:40 . Memory (MB): peak = 991.297 ; gain = 397.203
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:40 . Memory (MB): peak = 1041.176 ; gain = 438.313
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 1028.109 ; gain = 434.016
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -623,7 +628,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:41 . Memory (MB): peak = 1051.430 ; gain = 448.566
+Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 1039.043 ; gain = 444.949
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -647,7 +652,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1059.020 ; gain = 456.156
+Finished IO Insertion : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1047.113 ; gain = 453.020
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -660,7 +665,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 1059.020 ; gain = 456.156
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 1047.113 ; gain = 453.020
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -672,25 +677,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1059.020 ; gain = 456.156
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1047.113 ; gain = 453.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1059.020 ; gain = 456.156
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1047.113 ; gain = 453.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1059.020 ; gain = 456.156
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1047.113 ; gain = 453.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1059.020 ; gain = 456.156
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1047.113 ; gain = 453.020
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -775,29 +780,27 @@ Report Instance Areas:
 |10    |  xvga1          |xvga                |    82|
 +------+-----------------+--------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:45 . Memory (MB): peak = 1059.020 ; gain = 456.156
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1047.113 ; gain = 453.020
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:00:41 . Memory (MB): peak = 1059.020 ; gain = 304.082
-Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 1059.020 ; gain = 456.156
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:34 ; elapsed = 00:00:42 . Memory (MB): peak = 1047.113 ; gain = 301.215
+Synthesis Optimization Complete : Time (s): cpu = 00:00:44 ; elapsed = 00:00:47 . Memory (MB): peak = 1047.113 ; gain = 453.020
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 130 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1075.602 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1064.805 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-195 Infos, 26 Warnings, 0 Critical Warnings and 0 Errors encountered.
+195 Infos, 28 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:00:54 . Memory (MB): peak = 1075.602 ; gain = 776.770
-INFO: [Common 17-600] The following parameters have non-default value.
-tcl.collectionResultDisplayLimit
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1075.602 ; gain = 0.000
+synth_design: Time (s): cpu = 00:00:52 ; elapsed = 00:00:56 . Memory (MB): peak = 1064.805 ; gain = 773.895
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1064.805 ; gain = 0.000
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
-INFO: [Common 17-1381] The checkpoint 'C:/Users/Jeremy/6111-cv/final-test/final-test.runs/synth_2/top_level.dcp' has been generated.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/synth_2/top_level.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file top_level_utilization_synth.rpt -pb top_level_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Wed Dec  4 23:04:02 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Dec  7 20:24:58 2019...

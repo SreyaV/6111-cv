@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date         : Wed Dec  4 23:01:52 2019
-| Host         : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Date         : Sat Dec  7 20:23:15 2019
+| Host         : DESKTOP-7EQCPG5 running 64-bit major release  (build 9200)
 | Command      : report_utilization -file vio_utilization_synth.rpt -pb vio_utilization_synth.pb
 | Design       : vio
 | Device       : 7a200tsbg484-3
@@ -56,8 +56,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 138   |          Yes |         Set |            - |
-| 861   |          Yes |       Reset |            - |
+| 140   |          Yes |         Set |            - |
+| 859   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -149,10 +149,10 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  861 |        Flop & Latch |
+| FDRE     |  859 |        Flop & Latch |
 | LUT6     |  191 |                 LUT |
 | LUT4     |  175 |                 LUT |
-| FDSE     |  138 |        Flop & Latch |
+| FDSE     |  140 |        Flop & Latch |
 | LUT3     |  105 |                 LUT |
 | LUT5     |   45 |                 LUT |
 | LUT2     |   11 |                 LUT |

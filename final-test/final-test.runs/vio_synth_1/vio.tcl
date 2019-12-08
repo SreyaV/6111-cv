@@ -17,9 +17,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param tcl.collectionResultDisplayLimit 0
-set_param chipscope.maxJobs 1
-set_param xicom.use_bs_reader 1
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 create_project -in_memory -part xc7a200tsbg484-3
@@ -28,18 +25,18 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir C:/Users/Jeremy/6111-cv/final-test/final-test.cache/wt [current_project]
-set_property parent.project_path C:/Users/Jeremy/6111-cv/final-test/final-test.xpr [current_project]
+set_property webtalk.parent_dir {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.cache/wt} [current_project]
+set_property parent.project_path {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.xpr} [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths c:/Users/Jeremy/6111-cv/vivado-library/ip [current_project]
+set_property ip_repo_paths {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/vivado-library/ip}} [current_project]
 update_ip_catalog
-set_property ip_output_repo c:/Users/Jeremy/6111-cv/final-test/final-test.cache/ip [current_project]
+set_property ip_output_repo {c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.cache/ip} [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_ip -quiet C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio.xci
-set_property used_in_implementation false [get_files -all c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio.xdc]
-set_property used_in_implementation false [get_files -all c:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_ooc.xdc]
+read_ip -quiet {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio.xci}}
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio.xdc}}]
+set_property used_in_implementation false [get_files -all {{c:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_ooc.xdc}}]
 
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -51,7 +48,7 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 }
 set_param ips.enableIPCacheLiteLoad 1
 
-set cached_ip [config_ip_cache -export -no_bom  -dir C:/Users/Jeremy/6111-cv/final-test/final-test.runs/vio_synth_1 -new_name vio -ip [get_ips vio]]
+set cached_ip [config_ip_cache -export -no_bom  -dir {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/vio_synth_1} -new_name vio -ip [get_ips vio]]
 
 if { $cached_ip eq {} } {
 close [open __synthesis_is_running__ w]
@@ -92,32 +89,32 @@ write_checkpoint -force -noxdef vio.dcp
 create_report "vio_synth_1_synth_report_utilization_0" "report_utilization -file vio_utilization_synth.rpt -pb vio_utilization_synth.pb"
 
 if { [catch {
-  file copy -force C:/Users/Jeremy/6111-cv/final-test/final-test.runs/vio_synth_1/vio.dcp C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio.dcp
+  file copy -force {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/vio_synth_1/vio.dcp} {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio.dcp}
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  write_verilog -force -mode synth_stub C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.v
+  write_verilog -force -mode synth_stub {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.v}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode synth_stub C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.vhdl
+  write_vhdl -force -mode synth_stub {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.vhdl}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_verilog -force -mode funcsim C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_sim_netlist.v
+  write_verilog -force -mode funcsim {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_sim_netlist.v}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  write_vhdl -force -mode funcsim C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_sim_netlist.vhdl
+  write_vhdl -force -mode funcsim {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_sim_netlist.vhdl}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
@@ -127,47 +124,47 @@ if { [catch {
 
 
 if { [catch {
-  file copy -force C:/Users/Jeremy/6111-cv/final-test/final-test.runs/vio_synth_1/vio.dcp C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio.dcp
+  file copy -force {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/vio_synth_1/vio.dcp} {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio.dcp}
 } _RESULT ] } { 
   send_msg_id runtcl-3 error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
   error "ERROR: Unable to successfully create or copy the sub-design checkpoint file."
 }
 
 if { [catch {
-  file rename -force C:/Users/Jeremy/6111-cv/final-test/final-test.runs/vio_synth_1/vio_stub.v C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.v
+  file rename -force {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/vio_synth_1/vio_stub.v} {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.v}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a Verilog synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/Users/Jeremy/6111-cv/final-test/final-test.runs/vio_synth_1/vio_stub.vhdl C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.vhdl
+  file rename -force {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/vio_synth_1/vio_stub.vhdl} {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.vhdl}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create a VHDL synthesis stub for the sub-design. This may lead to errors in top level synthesis of the design. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/Users/Jeremy/6111-cv/final-test/final-test.runs/vio_synth_1/vio_sim_netlist.v C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_sim_netlist.v
+  file rename -force {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/vio_synth_1/vio_sim_netlist.v} {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_sim_netlist.v}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the Verilog functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 if { [catch {
-  file rename -force C:/Users/Jeremy/6111-cv/final-test/final-test.runs/vio_synth_1/vio_sim_netlist.vhdl C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_sim_netlist.vhdl
+  file rename -force {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.runs/vio_synth_1/vio_sim_netlist.vhdl} {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_sim_netlist.vhdl}
 } _RESULT ] } { 
   puts "CRITICAL WARNING: Unable to successfully create the VHDL functional simulation sub-design file. Post-Synthesis Functional Simulation with this file may not be possible or may give incorrect results. Error reported: $_RESULT"
 }
 
 }; # end if cached_ip 
 
-if {[file isdir C:/Users/Jeremy/6111-cv/final-test/final-test.ip_user_files/ip/vio]} {
+if {[file isdir {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.ip_user_files/ip/vio}]} {
   catch { 
-    file copy -force C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.v C:/Users/Jeremy/6111-cv/final-test/final-test.ip_user_files/ip/vio
+    file copy -force {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.v}} {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.ip_user_files/ip/vio}
   }
 }
 
-if {[file isdir C:/Users/Jeremy/6111-cv/final-test/final-test.ip_user_files/ip/vio]} {
+if {[file isdir {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.ip_user_files/ip/vio}]} {
   catch { 
-    file copy -force C:/Users/Jeremy/6111-cv/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.vhdl C:/Users/Jeremy/6111-cv/final-test/final-test.ip_user_files/ip/vio
+    file copy -force {{C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.srcs/sources_1/ip/vio/vio_stub.vhdl}} {C:/Users/Sreya Vangara/Documents/MIT/6.111/6.111/Final/final-test/final-test.ip_user_files/ip/vio}
   }
 }
 file delete __synthesis_is_running__

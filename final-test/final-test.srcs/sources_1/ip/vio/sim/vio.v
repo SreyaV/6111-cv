@@ -73,8 +73,8 @@ input [9 : 0] probe_in3;
 input [16 : 0] probe_in4;
 input [16 : 0] probe_in5;
 
-output reg [7 : 0] probe_out0 = 'h78 ;
-output reg [7 : 0] probe_out1 = 'h1E ;
+output reg [7 : 0] probe_out0 = 'hE6 ;
+output reg [7 : 0] probe_out1 = 'h96 ;
 output reg [7 : 0] probe_out2 = 'h0A ;
 output reg [7 : 0] probe_out3 = 'h00 ;
 output reg [7 : 0] probe_out4 = 'hFF ;

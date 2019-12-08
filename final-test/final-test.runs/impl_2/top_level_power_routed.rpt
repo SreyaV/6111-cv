@@ -1,8 +1,8 @@
 Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
-| Date             : Wed Dec  4 23:09:24 2019
-| Host             : DESKTOP-982HE02 running 64-bit major release  (build 9200)
+| Date             : Sat Dec  7 20:31:28 2019
+| Host             : DESKTOP-7EQCPG5 running 64-bit major release  (build 9200)
 | Command          : report_power -file top_level_power_routed.rpt -pb top_level_power_summary_routed.pb -rpx top_level_power_routed.rpx
 | Design           : top_level
 | Device           : xc7a200tsbg484-3
@@ -52,9 +52,9 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.026 |        9 |       --- |             --- |
+| Clocks                   |     0.027 |        9 |       --- |             --- |
 | Slice Logic              |     0.024 |    18968 |       --- |             --- |
-|   LUT as Logic           |     0.018 |     4993 |    133800 |            3.73 |
+|   LUT as Logic           |     0.018 |     4995 |    133800 |            3.73 |
 |   CARRY4                 |     0.004 |      995 |     33450 |            2.97 |
 |   Register               |     0.002 |    10220 |    267600 |            3.82 |
 |   LUT as Distributed RAM |    <0.001 |       24 |     46200 |            0.05 |
@@ -62,7 +62,7 @@ Table of Contents
 |   LUT as Shift Register  |    <0.001 |       15 |     46200 |            0.03 |
 |   F7/F8 Muxes            |    <0.001 |       10 |    133800 |           <0.01 |
 |   Others                 |     0.000 |     2353 |       --- |             --- |
-| Signals                  |     0.019 |    12414 |       --- |             --- |
+| Signals                  |     0.018 |    12408 |       --- |             --- |
 | Block RAM                |     0.017 |     36.5 |       365 |           10.00 |
 | MMCM                     |     0.122 |        1 |        10 |           10.00 |
 | PLL                      |     0.124 |        1 |        10 |           10.00 |
@@ -166,9 +166,9 @@ Table of Contents
 |     ycenter                          |     0.008 |
 |       U0                             |     0.008 |
 |   clkdivider                         |     0.122 |
-|   dbg_hub                            |     0.002 |
-|     inst                             |     0.002 |
-|       BSCANID.u_xsdbm_id             |     0.002 |
+|   dbg_hub                            |     0.003 |
+|     inst                             |     0.003 |
+|       BSCANID.u_xsdbm_id             |     0.003 |
 |   fifo                               |     0.002 |
 |     U0                               |     0.002 |
 |       inst_fifo_gen                  |     0.002 |
